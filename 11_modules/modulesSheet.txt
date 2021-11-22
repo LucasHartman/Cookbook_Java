@@ -1,0 +1,91 @@
+/*
+-- Java Platform Module System --
+
+- A format for module Jar files Partitioning(verdelen) of the JDK (Jave Developers Kit) into modules. 
+  (compile only what you need in a jar files, user can run that image withoud having java installed)
+- Additional command-line options for Java tools
+  ( It is also possible to add modules, exports, and more at the command line. But please don’t. )
+- Since Java now know wich modules are required, it only needs to look at those at class loading time
+  (imporoves startup time for big porgrams less memory)
+- Same package in two JARs. The JPMS prevent this senario
+  ( A package is only allowed to be supplied by one module )
+- Encapsulating packages
+  ( kewords: exports, to, requires, requires transitive )
+
+
+---------------------------------------------------------------------------------------
+
+
+
+-- module-info.java --
+
+- The opens keyword allows the use of reflection
+- The use keyword declares an API is called
+- The file can be empty ( zero bytes )
+- No packages insdie the moodule are automatically exported
+- A main method inside the module can be run
+
+requires transitive	specify a module to be used by the requesting module
+			and any other modules that use the requesting module
+
+module animal {
+	exports animal.behaviour to dog;
+	}
+module dog {
+	requires transitive animal;
+	}
+module puppy {
+	requires dog;	// gets the transitive dependencies
+	}
+
+---------------------------------------------------------------------------------------
+
+-- java Command --
+- Execute:	java --module-path x -m n/c
+
+
+-- jar Command --
+
+-m		--module		specifiy the module and class name
+-p		-module-path		specify the location of the modules
+
+
+-- jdeps Command -- 
+
+
+-- jmod commands --
+- jmod command creates a JMOD file
+- The jmod tool is intended for modules that have native libraries or other configuration files or for modules that you intend to link, with the jlink tool, to a runtime image.
+create		
+describe
+extract
+list
+hash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
