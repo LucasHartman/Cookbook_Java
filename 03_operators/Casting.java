@@ -1,3 +1,25 @@
+/*
+--Typecasting
+
+- The process of converting one type of object and variable into 
+  another type is refered to as Typecasting
+
+-- Implicitlye type casting or widing casting
+
+The conversion involves a samller data type to the larger type size.
+Example: byte -> short, char, int, long, float and double
+
+-- Explicit type casting or Narrowing type casting
+
+Converting a highter data type into a lower one is called narrowing type casting.
+It is done manually by the programmer. If we do not perfrom casting
+The compiler reports a compiltime error.
+
+double -> float -> long -> int -> char -> short -> byte  
+
+Example:       long l = (long)d;
+*/
+
 public class castingValue {
    /** Casting is a unary operation where one data type is explicitly interpreted as another data type.
         it is convenient that the compiler automatically casts smaller data types to larger ones
