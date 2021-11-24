@@ -77,6 +77,42 @@ public class Operands {
       it will return true if the strins have the same value
 
 
+    -- instanceof Comparison
+
+    - The instanceof operator is used for object refernce variables only
+    - You can use it to check whether an object is of a particluar type
+    - By "type" we mean class or interface type
+
+      if ( ChildClass instanceof  ParentClass) {}
+
+    
+    -- Arithmetic Operators
+
+    -   +   addition
+    -   -   subtraction
+    -   *   multiplication
+    -   /   division
+
+
+    -- Remainder (%) Operator
+
+    - The remainder operator divides the left operand by the right operand,
+      and the result is the remainder
+
+
+    -- String Concatenation Operator
+
+    - Concatenate two strings together
+
+
+    -- Increment and Decrement Operators
+
+    -   ++    Increment (prefix and postfix)
+    -   --    Decrement (prefix and postfix)
+    - The operator is place either before (prefix) or after (postfix)
+    
+
+
     */
 
 
@@ -92,8 +128,8 @@ public class Operands {
         x +=     2 * 5; // with compound Assignmnet
 
         // Relational Operators
-        int x = 8;
-        if ( x < 9 ) { // true
+        int xx = 8;
+        if ( xx < 9 ) { // true
             // do somthing
         }
 
@@ -107,6 +143,26 @@ public class Operands {
         JButton g = a;
         Boolean z = a == n; // false
         Boolean r = a == g; // true
+
+        // equals() Method in Class String
+        String s1 = "Bob";
+        String s2 = "Bob";
+        Boolean fg = s1.equals(s2); // true
+
+        // Arithmetic Operators
+        int q = 5 * 3;
+
+        // Remainder (%) Operator
+        int w = 15 % 4; // 3
+
+        // String Concatenation Operator
+        String animal = "Gray " + "elephant";
+
+
+
+
+
+
 
 
 
