@@ -29,7 +29,21 @@ public class PrecedenceEx1 {
     */
 
     public static void main(String[] args) {
-        
+
+        int a =  (-7 - 4 );
+        int b = (-(7 - 4)); 
+        System.out.println(a); // -11
+        System.out.println(b); // -3
+
+        int c = (2 + 3 * 4); // multiply comes first
+        int d = ((2 + 3) * 4);
+        System.out.println(c); // 14
+        System.out.println(d); // 20
+
+        boolean e = (7 > 5 && 2 > 3); // true && faslse
+        boolean f = (true & false == false | true); // == has the highest precedence
+        System.out.println(e); // flalse
+        System.out.println(f); // true
 
     }
 }
