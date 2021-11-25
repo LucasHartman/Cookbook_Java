@@ -12,26 +12,26 @@ public class Operands {
 
     -- Assignment Operators (=)
 
-    - Wehn assigning a value to a primitive, size matter.
-    Be sure you know when impicit casting will occur, 
+    - When assigning a value to a primitive, size matter.
+    Be sure you know when impicit casting (widing casting will occur, 
     when explicit casting (Narrow casting) is necessary, 
-    and when truncation might occur.
+    and when truncation (trim digits) might occur.
 
 
     -- Truncation
 
-    - to trim some digits of a float or double-type
-    - or some character of a string from the right
-    - Remember that after truncation, the number will not be round to its nears value.
+      - To trim some digits of a float or double-type
+      - Or some character of a string from the right
+      - Remember that after truncation, the number will not be round to its nearest value.
 
 
-    -- Compound Assignment Operators (+=, -=,*=, and /=)
+    -- Compound Assignment Operators (+=, -=,*=, /=)
 
 
-    -- Relational Operators (<, <=, >, >=, ==, and !=)
+    -- Relational Operators (<, <=, >, >=, ==, !=)
 
     - Relational operators always result in a boolean (true or false).
-    - This boolean value is most often used in a if test
+    - This boolean value is most often used in a if condision
     -   >     Greater than
     -   >=    Greater than or equal to
     -   <     Less than
@@ -67,7 +67,7 @@ public class Operands {
 
     -- The equals() Method in Class Object
 
-    - The equals() method in class Object works the same way that the == operator works.
+    - The equals() method in class Object works the same way as the == operator works.
     - If to references point to the same object, the equals() method will return true.
 
 
@@ -96,23 +96,21 @@ public class Operands {
 
     -- Remainder (%) Operator
 
-    - The remainder operator divides the left operand by the right operand,
-      and the result is the remainder
+      - The remainder operator divides the left operand by the right operand,
+        and the result is the remainder
 
 
     -- String Concatenation Operator
 
-    - Concatenate two strings together
+      - Concatenate two strings together
 
 
     -- Increment and Decrement Operators
 
-    -   ++    Increment (prefix and postfix)
-    -   --    Decrement (prefix and postfix)
-    - The operator is place either before (prefix) or after (postfix)
-    
-
-
+      -   ++    Increment (prefix and postfix)
+      -   --    Decrement (prefix and postfix)
+      - The operator is place either before (prefix) or after (postfix)
+      
     */
 
 

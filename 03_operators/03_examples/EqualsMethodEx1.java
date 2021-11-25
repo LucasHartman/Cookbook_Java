@@ -8,7 +8,7 @@ public class EqualsMethodEx1 {
     -- equals() Method
 
     - Java inherits a method from class Object that tests to see if two
-        objects of the class are “equal.” this method is called equals().
+      objects of the class are “equal.” this method is called equals().
     - equals() method is used to determine if two objects of the same class
     - Understand two aspects of the equals() method:
 
@@ -22,9 +22,9 @@ public class EqualsMethodEx1 {
       object, the equals() method will return true.
 
     
-    -- equals() Methodin Class String
+    -- equals() Method Class String
 
-    - Compare two strins, it will return true if the strings method, value ARE case sensitive.
+    - Compare two strings, it will return true if the strings method, value ARE case sensitive.
 
 */
 
@@ -56,7 +56,6 @@ public class EqualsMethodEx1 {
         // Equality for enums
         Boolean ec = c1.equals(c2); // not the same
         System.out.println(ec); // false
-
 
     }
     

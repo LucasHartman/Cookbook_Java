@@ -3,15 +3,15 @@ public class PrecedenceEx1 {
     /*
 
     “UMARELSA”
-    ___________________________________________________________________
-    1. Unary Operators                         -      !      ++,    --
-    2. Multiplicaiton, divsion, modulus        *      /      %
-    3. Addition, subtraction                   +      -
-    4. Relation operators                      <      >      <=    >=
-    5. Equality operators                      ==     !=
-    6. Logical operators                       &      |
-    7. Short-circuit                           &&     ||
-    8. Assignment operators                    =      +=      -=
+    _________________________________________________________________________________________________________________________________
+    1. Unary Operators                         -      !      ++,    --          negative    NOT         increment
+    2. Multiplicaiton, divsion, modulus        *      /      %                  multiple    divsion     remainder
+    3. Addition, subtraction                   +      -                         add         substract
+    4. Relation operators                      <      >      <=    >=           Greater     Lesser      LesserEqual     greaterEqual
+    5. Equality operators                      ==     !=                        equal       NOTequal
+    6. Logical operators (non-circuit)         &      |                         AND         OR
+    7. Short-circuit                           &&     ||                        AND         OR
+    8. Assignment operators                    =      +=      -=                equal       plusEqual   minusEqual
 
 
     -- recedence rules!
@@ -22,9 +22,7 @@ public class PrecedenceEx1 {
     2. When parts of an expression are placed in parentheses,
     those pars are evaluted first.
     
-    3. When parentheses are nested, the iinermost parentheses are evaluted fist.
-
-
+    3. When parentheses are nested, the innermost parentheses are evaluted fist.
 
     */
 
@@ -40,9 +38,9 @@ public class PrecedenceEx1 {
         System.out.println(c); // 14
         System.out.println(d); // 20
 
-        boolean e = (7 > 5 && 2 > 3); // true && faslse
+        boolean e = (7 > 5 && 2 > 3); // true && false
         boolean f = (true & false == false | true); // == has the highest precedence
-        System.out.println(e); // flalse
+        System.out.println(e); // false
         System.out.println(f); // true
 
     }

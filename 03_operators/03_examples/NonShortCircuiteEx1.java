@@ -2,13 +2,18 @@
 public class NonShortCircuiteEx1 {
 
     /*
+
     Logical Operators (Non-short-Circuit)
 
-    & AND       both must be true
-    | OR        at least one must be true
+    &   AND       both must be true
+    |   OR        at least one must be true
 
-    ^ XOR       Only one operand must be true.
-    ! NOR       inverts the outcome
+    ^   XOR       Only one operand must be true.
+    !   NOR       inverts the outcome
+
+    Non-Short-Circuid (& |) 
+    - they evaluate both side of the expression, ALWAYS!
+    even if the first operant (lef side) is false, the second operant will still be evalued.
 
 
     Short-Circuide (&& ||) 
@@ -17,28 +22,22 @@ public class NonShortCircuiteEx1 {
     if left hand side is false no need to evaluate right hand side one. 
     -  short-circuiting operators can be slightly slower because they cause branching in the program execution
 
-    Non-Short-Circuid (& |) 
-    - they evaluate both side of the expression, ALWAYS!
-    even if the first operant (lef side) is false, the second operant will still be evalued.
-
-
-
     */
 
     public static void main(String[] args) {
 
                 // AND
-                boolean b1 = (true == true) & (true == true);      // true && true =  true
-                boolean b2 = (true == false) & (true == true);     // false && true = false
-                boolean b6 = (false == false) & (false == false);  // true && true =  true
+                boolean b1 = (true == true) & (true == true);      // true & true =  true
+                boolean b2 = (true == false) & (true == true);     // false & true = false
+                boolean b6 = (false == false) & (false == false);  // true & true =  true
                 System.out.println(b1);
                 System.out.println(b2);
                 System.out.println(b6);
         
                 // OR
-                boolean b3 = (true == true) | (true == true);      // true || ture =  true
-                boolean b4 = (false == true) | (true == true);     // false || true = true
-                boolean b5 = (false == false) | (false == false);  // true || true =  true
+                boolean b3 = (true == true) | (true == true);      // true | ture =  true
+                boolean b4 = (false == true) | (true == true);     // false | true = true
+                boolean b5 = (false == false) | (false == false);  // true | true =  true
                 System.out.println(b3);
                 System.out.println(b4);
                 System.out.println(b5);

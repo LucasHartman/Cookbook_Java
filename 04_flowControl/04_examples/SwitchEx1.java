@@ -1,29 +1,14 @@
-public class mySwitch {
+public class SwitchEx1 {
 
-    /** 
-     * Switch Expressions, a construct that combines switch statements 
-        with lambda expressions and allows switch statements to return a value
+    /*
+    Switch Expressions, a construct that combines switch statements 
+    with lambda expressions and allows switch statements to return a value
         
-     * 
-     * 
-     * 
-     * 
-     * Switch statement Supports:
-     * - primitives (int, byte, shot, char
-     * - wrapper classes Integer, Byte, Short, and Character) 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
+    Switch statement Supports:
+    - primitives (int, byte, shot, char
+    - wrapper classes Integer, Byte, Short, and Character) 
 
-        */
-
-
+    */
 
     public static void main(String[] args) {
         
@@ -34,7 +19,6 @@ public class mySwitch {
         /* Switch statement Supports:
         - primitives (int, byte, shot, char
         - wrapper classes Integer, Byte, Short, and Character)  */
-
 
         case 1:
             System.out.println("Monday");

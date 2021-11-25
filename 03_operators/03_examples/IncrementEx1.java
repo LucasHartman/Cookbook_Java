@@ -28,7 +28,6 @@ public class IncrementEx1 {
 
         // prefix increment happens before the value of the variable is used
 
-
     }
 
 }

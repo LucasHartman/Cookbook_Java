@@ -6,10 +6,10 @@ public class ShortCircuitEx1 {
     AND (&&)        Short-circuit 
     OR (||)         Short-circuit
     
-    They are used to link boolean expressions together to from bigger boolan expressions.
+    They are used to link boolean expressions together to form bigger boolan expressions.
     
     Short-Circuide (&& ||) 
-    - Meaning they don't evaluate the right hand side if it that doesn't necessary
+    - Meaning they don't evaluate the right hand side if it not necessary
     Example:  
     if left hand side is false no need to evaluate right hand side one. 
     -  short-circuiting operators can be slightly slower because they cause branching in the program execution
@@ -39,7 +39,8 @@ public class ShortCircuitEx1 {
 
         /* The || and && operators work only with boolean operands. 
         The exam may try to fool you by using integers */
-        boolean b7 = (5 && 6);
+        boolean b7 = (5 && 6);  // error
+        boolean b8 = (5 & 6);   // error
         
     }
 }
