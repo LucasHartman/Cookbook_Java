@@ -13,7 +13,7 @@ public class NonShortCircuiteEx1 {
 
     Non-Short-Circuid (& |) 
     - they evaluate both side of the expression, ALWAYS!
-    even if the first operant (lef side) is false, the second operant will still be evalued.
+    even if the first operant (left side) is false, the second operant will still be evalued.
 
 
     Short-Circuide (&& ||) 

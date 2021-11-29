@@ -3,12 +3,14 @@ class Parent {}
 public class InstanceofEx1 extends Parent {
 
     /*
-    -- instanceof comparison ????????????????????????/
+    -- instanceof comparison 
 
     - The instanceof operator is used for object refence varialbes only
-    - Check wheather an ojbect is of a particular TYPE.
-    - 
+    - Same type or same Parent type
+    - example:      Child obj1  = new Child;
+                    Parent obj2 = new Parent;
 
+                    if (obj1 instanceof obj2)    // true
     */
 
     public static void main(String[] args) {

@@ -1,8 +1,15 @@
-public class PrecedenceEx1 {
-    
-    /*
+- When dividing ints, remainders are always rounded down.
 
-    “UMARELSA”
+- equals() method   is used to determine if two objects of the same class
+- == operator       tests for reference variable equality, not object equality.
+- An enum can be compared using either equals() or ==
+
+- postfix incremented by one but only after the value of incremented-variable is used in the expression.
+
+- Non-Short-Circuid (& |)  evalutes both sides
+- Short-Circuide (&& ||)    evalutes one side
+
+- “UMARELSA”
     _________________________________________________________________________________________________________________________________
     1. Unary Operators                         -      !      ++,    --          negative    invert      increment
     2. Multiplicaiton, divsion, modulus        *      /      %                  multiple    divsion     remainder
@@ -13,35 +20,4 @@ public class PrecedenceEx1 {
     7. Short-circuit                           &&     ||                        AND         OR
     8. Assignment operators                    =      +=      -=                equal       plusEqual   minusEqual
 
-
-    -- recedence rules!
-    
-    1. When two operatos of the same precedence are in the same expresion,
-    Java evaluates the expression from left to right.
-
-    2. When parts of an expression are placed in parentheses,
-    those pars are evaluted first.
-    
-    3. When parentheses are nested, the innermost parentheses are evaluted fist.
-
-    */
-
-    public static void main(String[] args) {
-
-        int a =  (-7 - 4 );
-        int b = (-(7 - 4)); 
-        System.out.println(a); // -11
-        System.out.println(b); // -3
-
-        int c = (2 + 3 * 4); // multiply comes first
-        int d = ((2 + 3) * 4);
-        System.out.println(c); // 14
-        System.out.println(d); // 20
-
-        boolean e = (7 > 5 && 2 > 3); // true && false
-        boolean f = (true & false == false | true); // == has the highest precedence
-        System.out.println(e); // false
-        System.out.println(f); // true
-
-    }
-}
+- Ternary can be nested in a Ternary:       String s = (i<40) ? "life" : (i>50 ? "universe" : "everything");

@@ -1,6 +1,6 @@
 package 03_examples;
 
-public class RemainderEx1 {
+public class RemainderOpEx1 {
 
     /*
 
