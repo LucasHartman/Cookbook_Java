@@ -1,13 +1,39 @@
 public class SwitchEx1 {
 
     /*
-    Switch Expressions, a construct that combines switch statements 
-    with lambda expressions and allows switch statements to return a value
+    -- Switch Expression
+
+    - a construct that combines switch statements 
+    - with lambda expressions and allows switch statements to return a value
         
-    Switch statement Supports:
+    -- Switch statement Supports
+
     - primitives (int, byte, shot, char
     - wrapper classes Integer, Byte, Short, and Character) 
+    - enum and String
 
+    -- Casting
+
+    - only variables and values that can be automatically promoted (in other words, implicitly cast) to an int are acceptable. 
+    - You won’t be able to compile if you use anything else, including the remaining numeric types of long, float, and double.
+
+    -- compile-time constant
+
+    - A case constant must evaluate to the same type that the switch expression can use
+    - The case constant must be a compile-time constant! 
+      case argument has to be resolved at compile time,
+    - you can use only a constant or final variable that is immediately initialized
+    -  is not enough to be final; it must be a compile-time constant.
+    
+    -- all-through
+
+    -  If break is omitted, the program just keeps executing the remaining case blocks until either a break is found 
+
+    -- default
+
+    - The defalut case doesn have to come at the end of the switch
+    - Default works just like any other case for fall-through
+    
     */
 
     public static void main(String[] args) {
@@ -16,10 +42,6 @@ public class SwitchEx1 {
         
         //  Switch statement 
         switch (day) { 
-        /* Switch statement Supports:
-        - primitives (int, byte, shot, char
-        - wrapper classes Integer, Byte, Short, and Character)  */
-
         case 1:
             System.out.println("Monday");
             break;
@@ -41,6 +63,32 @@ public class SwitchEx1 {
         case 7:
             System.out.println("Sunday");
             break;
+        default:
+            System.out.println("Dday");
+        }
+
+
+        // Example: compile-time constant
+        final int a = 1;
+        final int b;
+
+        switch (x) {
+            case a:     // ok
+            case b:     // compiler error
+        }
+
+        // Example: case same value
+        int temp = 90;
+        switch(temp) {
+            case 80:
+            case 80:    // won't compile
+            case 90:
+            default:
+        }
+
+        // Example: boxing
+        switch( new String("A") ) {
+            case "A": System.out.println("boxing is OK");
         }
 
     }
