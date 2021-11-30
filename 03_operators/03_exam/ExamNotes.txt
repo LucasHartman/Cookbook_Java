@@ -21,3 +21,20 @@
     8. Assignment operators                    =      +=      -=                equal       plusEqual   minusEqual
 
 - Ternary can be nested in a Ternary:       String s = (i<40) ? "life" : (i>50 ? "universe" : "everything");
+
+
+- Implicitlye type casting or widing casting
+
+         byte -> short ->  char ->  int ->  long ->  float -> double
+
+- Explicit type casting or Narrowing type casting
+
+         double -> float -> long -> int -> char -> short -> byte  
+
+         Example:       long l = (long)d;
+
+
+- Operators like muliplication automatically promotes values to a int
+
+- pig = pig++;  Store the original value because its a post increamental
+
