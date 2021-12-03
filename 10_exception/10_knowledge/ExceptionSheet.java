@@ -9,7 +9,7 @@ import java.io.*;
                         ---------------------------------------------------
                         |                                                  \
                     <Exception>                                           <Error> (Unchecked)
-                        \
+                        |
             ---------------------------------------------------------------------------------
             |                                       |                                       |
     <Runtime Exception> (Unchecked)          <Other Exception>                         IOException
