@@ -1,0 +1,28 @@
+
+ArithmeticException
+Thrown when code attempts to divide by zero
+
+
+arrayIndexOutOfBounds
+throws NullPointerException becasue, list[index] is out of range
+
+
+ClassCastException
+cast a reference to a type of which it's not a subtype (String to int)
+
+
+NumberFormatException
+When an attempt is made to convert a string with improper format into a numeric value.
+
+
+NullPointerException
+because it is null
+
+
+IllegalArgumentException
+when an unexpected parameter is passed into a method.
+
+FileNotFoundException
+- A file with the specified pathname does not exist
+- A file with the specified pathname does exist but is inaccessible for some reason
+

@@ -6,8 +6,12 @@ public class examOCA {
     3. A
     4. A
     5. A, D, E, F
-    6. E
-    7. D
+
+
+
+
+    6. E        -ic mc mf of
+    7. D        
     8. F 8 9 10 9 10 10
     9. ?
     10. A

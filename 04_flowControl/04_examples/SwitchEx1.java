@@ -34,6 +34,17 @@ public class SwitchEx1 {
     - The defalut case doesn have to come at the end of the switch
     - Default works just like any other case for fall-through
     
+    -- Supports
+    -   primites:       int, by, short, and char
+    -   wrapper class:  Integer, Byte, Short, and Character
+    -   enum
+    -   String
+    -   var (if the type can be resolved)
+
+    -- Not Supported
+    -   primites:       long, float, double
+    -   wrapper class:  Long, Float, Double
+    
     */
 
     public static void main(String[] args) {

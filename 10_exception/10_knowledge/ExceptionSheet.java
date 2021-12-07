@@ -4,17 +4,18 @@ import java.io.*;
 
 /*
 
-                                            <Throwable>
+                                        java.lang.Throwable>
                                                 |
                         ---------------------------------------------------
-                        |                                                  \
-                    <Exception>                                           <Error> (Unchecked)
+                        |                                                  |
+                java.lang.Exception                               <Error> (Unchecked)
                         |
             ---------------------------------------------------------------------------------
             |                                       |                                       |
-    <Runtime Exception> (Unchecked)          <Other Exception>                         IOException
+    Runtime Exception> (Unchecked)          <Other Exception>                      java.io.IOException
+            |
     - ArithmeticException                                                                   |
-    - ArrayIndexOutOfBoundsException                                                    FileNotFoundException (checked Exception)
+    - ArrayIndexOutOfBoundsException                                       FileNotFoundException (checked Exception)
     - ClassCastException
     - NullPointerException
     - IllegalArgumentException
