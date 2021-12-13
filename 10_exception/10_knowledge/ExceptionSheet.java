@@ -30,6 +30,7 @@ public class ExceptionSheet {
 
     -- Checked exception
     -   Checked exceptions tend to be more anticipated
+    -   checked exception, must be handled in a try/catch block or declared by the method
     -   Java enforeces the programmer to do something about the Checked Exepection
         1. Handeling in the method (try/catch)
         2. Declare in the method siganture (throws), that someone else should handle it.
@@ -38,15 +39,17 @@ public class ExceptionSheet {
 
     -- UnChecked exception (RuntimeExceptions)
     -   Exceptions that are thrown at runtime
+    -   You can declare unchecked exceptions
     -   unchecked exception is any exception that does not need to be
         declared or handled by the application code
 
 
     --  Error
-    - Error represent unusual situations that are not caused by program errors and indicate
-      things that would not normally happen during program execution, such as the JVM running out of memory.
-    - Generally, your application won’t be able to recover from an Error, so you’re not required to handle them.
-    - Errors are technically not exceptions because they do not derive from class Exception.
+    -   Error represent unusual situations that are not caused by program errors and indicate
+        things that would not normally happen during program execution, such as the JVM running out of memory.
+    -   Generally, your application won’t be able to recover from an Error, so you’re not required to handle them.
+    -   Errors are technically not exceptions because they do not derive from class Exception.
+    -   Errors are allowed, but not required, to be handled or declared.
     
     ----------------------------------------------------------------------------------------------------------------
 
@@ -62,7 +65,7 @@ public class ExceptionSheet {
     1.  declare an exception which might get thrown
     2.  declare multiple exceptions
     3.  declare checked and uncheced exception
-    4.  syntax wise throws keywrod is floolowed by expcetion class names
+    4.  syntax wise throws keywrod is followed by expcetion class names
     5.  throws keyword is used with the method signature
 
     ----------------------------------------------------------------------------------------------------------------
@@ -70,6 +73,7 @@ public class ExceptionSheet {
     -- try
     -   try is used to define a block of code in which exceptions may occur.
     -   This block of code is called a “guarded region” (which really means “risky code goes here”).
+    -   A regular try statement is required to have a catch clause and/or finally clause.
 
 
     -- catch clauses
@@ -80,6 +84,9 @@ public class ExceptionSheet {
     -   clean up after ourselves if an exception occurs. 
     -   This is the right place to close your files, release your network sockets, 
         and perform any other cleanup your code requires.
+    -   If a regular try statement does not have
+        any catch clauses, then it must have a finally block
+    -   A finally block is never required with a try-with-resources statement
 
     ----------------------------------------------------------------------------------------------------------------
 

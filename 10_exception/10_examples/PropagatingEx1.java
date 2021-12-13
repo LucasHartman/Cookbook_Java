@@ -6,28 +6,23 @@ public class PropagatingEx1 {
     - 
 
     -- Callstack
-
     -   method stack or a call stack. Simply put, the call
         stack is the chain of methods that your program executes 
         to get to the current method
     -   main() calls method a(), which calls method b(), which in turn calls method c()
     -   The call stac consists of the following: 
-
         c
         b
         a
         main
-
-    - We will represent the stacs as grwoing upward
+    - We will represent the stacks as grwoing upward
 
     -- ducked exceptions (exception propagation)
-
     - Like the callstack expains we go up the method stack, 
         on top a exception is thrown, which goes down the stack,
         on the bottom the exception can be caught.
     -   call stack will be “dumped.” This helps you debug your application by 
         telling you what exception was thrown, from what method it was thrown
-    - 
 
     */
     

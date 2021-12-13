@@ -4,9 +4,7 @@ public class ThrowsEx1 {
 
 
     -- throws
-    
     - The throws keyword in Java is used to declare exceptions that can occur during the execution of a program.
- 
       1. declare an exception which might get thrown
       2. declare multiple exceptions
       3. declare checked and uncheced exception
@@ -14,7 +12,6 @@ public class ThrowsEx1 {
       5. throws keyword is used with the method signature
 
       -- throw
-
       1. throw an exception
       2. thow single exception not multiple
       3. throw only unchecked excepition
@@ -22,12 +19,10 @@ public class ThrowsEx1 {
       5. throw is used within the method
 
       -- Checked Exceptions
-
-      - Are the exceptoins that are checed at compile time
+      - Are the exceptoins that are checked at compile time
 
       -- Uncheced Exceptions
-
-      - Exceptions that are not checed at compile time
+      - Exceptions that are not checked at compile time
       - Error and RutnimeException are unchecede exceptions.
 
 
