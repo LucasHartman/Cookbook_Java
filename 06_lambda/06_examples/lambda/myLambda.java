@@ -5,17 +5,17 @@ import java.util.ArrayList;
  * 
  * 
  * Valid lambdas
-                    () -> true                                          0 parameters
+                    ()                      ->   true                               0 parameters
 
-                    a -> a.startsWith("test")                           1 parameters
+                    a                       ->   a.startsWith("test")               1 parameters
 
-                    (String a) -> a.startsWith("test")                  1 parameters    shows type
+                    (String a)              ->   a.startsWith("test")               1 parameters    shows type
 
-                    (a, b) -> a.startsWith("test")                      2 parameters    
+                    (a, b)                  ->   a.startsWith("test")               2 parameters    
 
-                    (String a, String b) -> a.startsWith("test")        2 parameters    shows type
+                    (String a, String b)    ->   a.startsWith("test")               2 parameters    shows type
 
-                    a -> { return a.startsWith("test"); }               1 paramters     semicolon{}, which requires return keyword
+                    a                       ->   { return a.startsWith("test"); }   1 paramters     semicolon{}, which requires return keyword
  */
 
  // 1. Create Function Interface
