@@ -49,7 +49,7 @@ public class StringEx1 {
         System.out.println("toLowerCase         "+s.toLowerCase());
         System.out.println("toString            "+s.toString());
         System.out.println("toUpperCase         "+s.toUpperCase());
-        System.out.println("trim                "+s.trim()); // remove spaces
+        System.out.println("trim                "+s.trim()); // remove spaces, front/back
 
     }
 }
