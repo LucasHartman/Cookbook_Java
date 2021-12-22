@@ -5,57 +5,42 @@ class Budgie {
 public class EqualsMethodEx1 {
 
     /*
-    -- equals() Method
-
-    - Java inherits a method from class Object that tests to see if two
-      objects of the class are “equal.” this method is called equals().
-    - equals() method is used to determine if two objects of the same class
-    - Understand two aspects of the equals() method:
-
-        - What equals() means in class Object
-        - What equals() means in class String
+    --  == operator
+    -   Reference comparison
+    -   Checks if both references points to same location or not.
 
 
-    -- equals() Method in Class Object
-
-    - It works the same ways as == operators. If two references point to the same 
-      object, the equals() method will return true.
-
-    
-    -- equals() Method Class String
-
-    - Compare two strings, it will return true if the strings method, value ARE case sensitive.
-
-*/
+    --  equals()
+    -   equals() method should be used for content comparison
+    -   Evaluates the content to check the equality.
+    */
 
     enum Color { RED, BLUE } // ; is optional
 
     public static void main(String[] args) {
 
-        Budgie b1 = new Budgie();
-        Budgie b2 = new Budgie();
-        Budgie b3 = b1;
+        Budgie b1 = new Budgie(); // new object
+        Budgie b2 = new Budgie(); // new object
+        Budgie b3 = b1;           // inherit object
 
-        String s1 = "Bob";
-        String s2 = "Bob";
+        String s1 = "Bob";        // new String
+        String s2 = "Bob";        // String already exist in the heap
 
         Color c1 = Color.RED;
         Color c2 = Color.BLUE;
 
 
-        // equals() Method in Class Object
-        Boolean gb = b1.equals(b2);
-        Boolean bs = b1.equals(b3);
-        System.out.println(gb); // false (not referring to the same class instance)
-        System.out.println(bs); // true
+        // equals() Class Object comparison
+        Boolean gb = b1.equals(b2);     // fasle    (different references)
+        Boolean bs = b1.equals(b3);     // true     (same refrence)
         
-        // equals() Method in Class String
+        // equals() String comparison
         Boolean fg = s1.equals(s2); 
-        System.out.println(fg); // true
+        System.out.println(fg);         // true     (same reference (String in the heap))
 
-        // Equality for enums
-        Boolean ec = c1.equals(c2); // not the same
-        System.out.println(ec); // false
+        // equals() enum comparison
+        Boolean ec = c1.equals(c2);     // fasle    (different references)
+
 
     }
     
