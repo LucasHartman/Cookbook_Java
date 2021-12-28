@@ -1,5 +1,6 @@
 class A {
     String name = "A";
+    
     String getName() {
         return name;
     }
