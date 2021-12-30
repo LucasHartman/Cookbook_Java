@@ -28,7 +28,7 @@ class B implements A {
     public int getValue() { return 1; }     // initialize method
 }
 
-public class PolymorphismEx1 extends B {
+public class polymorphismEx1 extends B {
 
     // Polymorphism
     public void add( A a ) { 
@@ -41,7 +41,7 @@ public class PolymorphismEx1 extends B {
     }
 
     // is not inheritind, so it is not polymorphism
-    public void add( PolymorphismEx1 c ) { 
+    public void add( polymorphismEx1 c ) { 
         c.getValue();
     }
 
@@ -51,7 +51,7 @@ public class PolymorphismEx1 extends B {
     }
 
     // // is not inheritind, so it is not polymorphism
-    public void add( PolymorphismEx1 c1, PolymorphismEx1 c2 ) { 
+    public void add( polymorphismEx1 c1, polymorphismEx1 c2 ) { 
         c1.getValue();
     }
 

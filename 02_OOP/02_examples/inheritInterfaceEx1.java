@@ -1,17 +1,5 @@
 /*
-
-
-Elements of Types               Classes             Interfaces
-------------------------------------------------------------------
-Instance variable               Yes                 Not applicable
-Static variable                 Yes                 Only constants
-Abstract methods                Yes                 Yes
-Instance methods                Yes                 Java 8 default methods
-Static methods                  Yes                 Java 8, inherited no, accessible yes
-Contructors                     No                  Not applicable
-Initialization block            No                  Not applicable
-
---  Instance variable
+--  Static variable
 -   an interface can contains variables like int, float and string too.
 -   interface, variables are static and final by default. 
     - Static:   Only ONE COPY of each static variable per class. They're stored in the static memory
@@ -19,6 +7,17 @@ Initialization block            No                  Not applicable
 -    All variables in an interface in java should have only public access modifier.
 -   Note that if we don’t write public, static and final before interface variable
 
+
+
+Elements of Types               Classes             Interfaces
+------------------------------------------------------------------
+Instance variable               Yes                 Not applicable (don't work in an Interface)
+Static variable                 Yes                 Only constants (see example below)
+Abstract methods                Yes                 Yes
+Instance methods                Yes                 Java 8 default methods
+Static methods                  Yes                 Java 8, inherited no, accessible yes
+Contructors                     No                  Not applicable
+Initialization block            No                  Not applicable
 */
 
 interface MyInterface {
@@ -26,16 +25,15 @@ interface MyInterface {
     // Instance Variable
     // public int myVar;            // illegal - final variable must be declared with a value
     // private int myVar2 = 1;  	// illegal - can't use private in an interface
-    public static final int myVar1 = 1;
-
-
+    
+    public static final int myVar1 = 1; // legal -  you don't have to add "public static final" (but it makes it easer to read)
 }
 
 
 
 public class inheritInterfaceEx1 implements  MyInterface {
 
-    int static myVar1 = 100; // illegal - myVar1 already exist in the Static Memoery
+    int static myVar1 = 100; // Illegal - myVar1 already exist in the Static Memory and can't be changed
 
     public static void main(String[] args) {
 
@@ -45,7 +43,5 @@ public class inheritInterfaceEx1 implements  MyInterface {
         // Illegal
         System.out.println(myVar1); // error: non-static variable myVar1 cannot be referenced from a static context
         System.out.println(inheritInterfaceEx1.myVar1); // error: <identifier> expected
-    
     }   
-
 }
