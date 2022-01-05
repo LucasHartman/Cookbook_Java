@@ -8,6 +8,7 @@
     -   extends     (for class inheritance) and
     -   implements  (for interface implementation).
 
+
 Learn more: Design Patterns
 Source:     https://www.javatpoint.com/design-patterns-in-java
 */

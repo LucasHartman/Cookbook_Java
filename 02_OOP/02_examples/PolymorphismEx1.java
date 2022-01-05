@@ -2,7 +2,8 @@
 --  Polymorphism and Inheritance
 -   Polymorphism means "many forms", and it occurs when we have many classes 
     that are related to each other by inheritance.
-
+-   Remember that any Java object that can pass more than one IS-A test 
+    can be considered polymorphic.
 
 --  Inheritance
 -   it usually revolved around subclasses inheriting methods from their superclasses.
@@ -17,6 +18,10 @@ Instance methods                Yes                 Java 8 default methods
 Static methods                  Yes                 Java 8, inherited no, accessible yes
 Contructors                     No                  Not applicable
 Initialization block            No                  Not applicable
+
+
+
+
 
 */
 
@@ -35,7 +40,7 @@ public class polymorphismEx1 extends B {
         a.getValue();
     }
 
-    // Polymorphism
+    // Polymorphism  (overloading)
     public void add( B b ) { 
         b.getValue();
     }
@@ -45,7 +50,7 @@ public class polymorphismEx1 extends B {
         c.getValue();
     }
 
-    // Polymorphism
+    // Polymorphism  (overloading)
     public void add( A a, B b ) { 
         a.getValue();
     }
