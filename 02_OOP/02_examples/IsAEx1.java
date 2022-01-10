@@ -1,9 +1,10 @@
 
 /*
 --  IS-A
--   IS-A is based on inheritance (or interface implementation)
+-   IS-A refers to inheritance or implementation.
+-    IS-A, “inherits from,” and “is a subtype of” are all equivalent expressions
 -   IS-A is a way of saying, “This thing IS A type of that thing.”
--   Example: Child is a type of that parent
+-   Example: Child is a type of that Parent
 -   You express the IS-A relationship in Java through the keywords 
     -   extends     (for class inheritance) and
     -   implements  (for interface implementation).

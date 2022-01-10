@@ -4,8 +4,8 @@
 -   inherits a method from a supertype, you have the opportunity to override the method
 
 -   SAME name, SAME argument list SAME return type 
--   Acces modifier can be broader, not narrower
--   Thrown unchecked (runtime) exception can't be new or braoder, can be narrower
+-   access modifier must be the same or broader in the child method
+-   Thrown checked exceptions NOT new or broader
 
 -   Private methods can't be overridden
 -   Static methods  can't be overridden

@@ -17,14 +17,14 @@ class Animal {
 public class StaticEx3 extends Animal {
     public static void main(String[] args) {
 
-        Animal.doStuff();            // animal - invode static method
+        Animal.doStuff();            // animal - static method
 
-        StaticEx3.doStuff();        // dog
+        StaticEx3.doStuff();        // dog - redefined method
     }
 
 
     // child static method
     static void doStuff() {
-        System.out.print("dog");
+        System.out.print("dog");    // redefined
     }
 }

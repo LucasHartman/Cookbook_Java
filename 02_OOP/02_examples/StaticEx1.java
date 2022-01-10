@@ -1,9 +1,10 @@
 
 /*
 --  Static
--   static method or variable without having any instances of that class 
+-   static members are tied to the class or interface,
+    not an instance, so there is only one copy of any static member. 
 -   static variable of a class will be shared by all instances of that class; there is only one copy
--   
+-   Use static methods to implement behaviors that are not affected by the state of any instances
 
 --  static main()
 -   you can’t access a nonstatic (instance) variable from a static method( main() ). 

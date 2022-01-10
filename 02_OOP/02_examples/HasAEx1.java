@@ -1,6 +1,8 @@
 
 /*
 --  HAS-A
+-    HAS-A means an instance of one class “has a” reference to an instance of another class
+    or another instance of the same class
 -   HAS-A relationships are based on use, rather than inheritance.
 -   Example:    A Horse IS-A Animal. A Horse HAS-A Halter.
 -   HAS-A relationships allow you to design classes that follow good OO practices 
@@ -13,10 +15,17 @@ Source:     https://www.javatpoint.com/design-patterns-in-java
 
 */
 
-class Animal { }
+class Animal { 
 
-class HasAEx1 extends Animal {  // HasAEx1 Is-A Animal
-    
-    // instance variable
-    private Halter myHalter;    // Has A Halter
+    void doStuff() { System.out.println("brow"); }
+}
+
+
+public class HasAEx1 {  
+
+    public static void main(String[] args) {
+
+        Animal obj = new Animal(); // HAS-A
+        obj.doStuff();              
+    }
 }

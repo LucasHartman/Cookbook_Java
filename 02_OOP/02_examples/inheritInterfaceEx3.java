@@ -8,7 +8,7 @@
 Elements of Types               Classes             Interfaces
 ------------------------------------------------------------------
 Instance variable               Yes                 Not applicable (don't work in an Interface)
-Static variable                 Yes                 Only constants (see example below)
+Static variable                 Yes                 Only constants
 Abstract methods                Yes                 Yes
 Instance methods                Yes                 Java 8 default methods
 Static methods                  Yes                 Java 8, inherited no, accessible yes
@@ -24,7 +24,7 @@ interface MyInterface {
 
 
 
-public class inheritInterfaceEx2 implements  MyInterface {
+public class InheritInterfaceEx2 implements  MyInterface {
 
     public static void main(String[] args) {
 

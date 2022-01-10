@@ -1,4 +1,14 @@
-public class returnEx1 {
+
+/*
+--  Return Types
+-    Object reference return types can accept null as a return value.
+-   An array is a legal return type, both to declare and return as a value.
+-   For methods with primitive return types, any value that can be implicitly (widening) converted to
+    the return type can be returned.
+
+*/
+
+public class ReturnEx1 {
 
     // return null
     public Button do stuff() {

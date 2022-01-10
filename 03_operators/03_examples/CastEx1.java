@@ -2,26 +2,20 @@ public class CastEx1 {
 
        /*
     --  Implicitlye Casting | Widing Casting |  Casting Down
-    -   Converting a lower data type into a higher one is called widening type casting. 
-    -   It is done automatically. 
+    -   Converting lower -> higher data types
+    -   Automatically
     -   The conversion between numeric data type to char or Boolean is not done automatically.
 
          byte -> short -> int -> long -> float -> double
 
 
     --  Narrowing Casting | Explicit Easting | Casting Up
-    -   Converting a highter data type into a lower one is called narrowing type casting.
-    -   It is done manually by the programmer. 
+    -   Converting highter -> lower data types
+    -   Manually (by the programmer)
     -   If we do not perfrom casting the compiler reports a compiletime error.
 
          double -> float -> long -> int -> short -> byte  
 
-    
-    --  Unary operation (Typecasting)
-    -   The process of converting one type of object and variable into 
-        another type is refered to as Typecasting
-    -   compiler automatically casts smaller data types to larger ones
-    -   casting can also be applied to objects and references
    */
 
     public static void main(String[] args) {

@@ -16,12 +16,26 @@
 --  Access Methods
 -    getters and setters, other terms accessors and mutators
 -   The point is, you can change your mind later 
-    and add more code to your methods without breaking your API. <-----------------
--   
-
+    and add more code to your methods without breaking your API. <----------------
 */
 
-public class encapsulationEx1 {
+public class EncapsulationEx1 {
+
+    // instance variable hidden
+    private String name;
+
+    // accessor method, getter
+    public String getName() {
+        return name;
+   }
+
+   // accessor method - setter
+    public void setName(String newName) {
+        // add more code in the future without breaken your API
+        name = newName;
+    }
+
+
 
     public static void main(String[] args) {
 
