@@ -1,6 +1,18 @@
 
 /*
 
+14/01 ---------------------------------------------------------------------------------------------------
+
+--  Hidden Method
+-   private final String doStuff() { return "stuffff"; }
+-   The doStuff() method in the sub class does not override the version in the parent
+    class since the method is not visible to the parent class.
+
+--  Override Final
+-   You cant inherit and override a final methid, unless its is hidden(private)
+
+
+
 13/01 ---------------------------------------------------------------------------------------------------
 
 --  final class
