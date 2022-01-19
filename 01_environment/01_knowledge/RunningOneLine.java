@@ -1,6 +1,6 @@
 /**
  * Running a Program in One Line (Chapter 01)
- * - Starting in Java 11, you can run a program without compiling it firs
+ * - Starting in Java 11, you can run a program without compiling it first
  * 
  * Steps
  * 1. java RunningOneLine.java

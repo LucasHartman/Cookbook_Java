@@ -9,11 +9,11 @@
  * - API documentation (javadoc)
  * 
  * Bytecode
- * javac program generates instruction 9in a special format that the java comand can run calle bytecode
+ * javac program generates instruction in a special format that the java comand can run called bytecode
  * 
- * Jav Virtula Machine (JVM)
- * Then java launches the Java Virtual Machine (JVM) beforee running the code. 
- * You can think of the JVM as a special magic box on y9our machine that konws how to run our .class file.
+ * Jav Virtul Machine (JVM)
+ * Then java launches the Java Virtual Machine (JVM) before running the code. 
+ * You can think of the JVM as a special magic box on your machine that konws how to run our .class file.
  * 
  * 
  * Jave Runtime Envirotment (JRE)

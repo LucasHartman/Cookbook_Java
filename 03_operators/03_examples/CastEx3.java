@@ -9,10 +9,10 @@ class CastEx3 {
     public static void main(String[] args) {
 
         Short y = 6; // SHORT
-        int z = 7; // Compilation Error
+        int z = 7; 
 
         go(y);
-        //go(z);
+        //go(z); // Compilation Error
     }
     
 }

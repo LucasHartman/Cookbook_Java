@@ -2,7 +2,7 @@ import java.sql.Date;
 
 /**
  * import statement ===============================================================================
- * tell JAva which packages to look in for classes
+ * tell Java which packages to look in for classes
  * Example:
  *      import java.util.Random;
  *      import java.package.class;

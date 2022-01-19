@@ -29,10 +29,10 @@ public static void main(String[] args) {
     if ((s2 instanceof Vessel) && (s2 instanceof Toy)) s += "2"; // (true) && (true) = true
     System.out.println(s); // 012
 
-    System.out.println(b instanceof Vessel); // true
-    System.out.println(b2 instanceof Toy); // true
-    System.out.println(s2 instanceof Vessel); // true
-    System.out.println(s2 instanceof Toy); // true
+    System.out.println(b instanceof Vessel);    // true
+    System.out.println(b2 instanceof Toy);      // true
+    System.out.println(s2 instanceof Vessel);   // true
+    System.out.println(s2 instanceof Toy);      // true
 
 
 

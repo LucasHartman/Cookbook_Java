@@ -4,7 +4,6 @@ public class BitwiseEx1 {
     Logical Operators (Bitwire)
 
     - They can be used with any of the integral types (char, short, int, etc). 
-    - 
 
     Bite wise operators compare two variables bit by bit and 
     return a variable whose bits have been set based on wheter 

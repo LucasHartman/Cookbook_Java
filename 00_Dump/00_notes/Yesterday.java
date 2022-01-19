@@ -1,5 +1,94 @@
 
 /*
+19/01 ---------------------------------------------------------------------------------------------------
+
+
+
+18/01 ---------------------------------------------------------------------------------------------------
+
+CHAPTER 01
+
+--  variable declaration
+    double num1, int num2 = 0;
+-    Java does not allow declaring different types as part
+    of the same declaration.
+
+--  non-primitive
+-   Instance variables have a default value based on the type. For any non-primitive, 
+    including String, that type is a reference to null.
+
+--  new keyword
+-   The new keyword is used to call the constructor for a class and 
+    instantiate an instance of the class. 
+
+--  order of elemtns in a class
+-   The instance variables, constructor, 
+    and method names can appear in any order within a class declaration
+
+-- local variable
+    public static void main(String[] args) {
+    defaultValue;                               // Error local variable is not initialized
+    System.out.println(defaultValue);
+    }
+-   Local variables do not have a default initialization value.
+
+--  finalize()
+-   The finalize() method may not be called, such as if your program crashes. However,
+    it is guaranteed to be called no more than once.
+
+-- Wrapper classes
+    1_000_000_.00
+-   Illegal uderscore before the decimal point
+-   Java will automatically convert from primitive to wrapper class types and vice versa. 
+
+--  Instance Method
+    int i = new Integer(4);
+    System.out.print(i.byteValue());
+-   does not allow calling an instance method on a primitive. 
+
+--  Garbage Collection
+-   While you can suggest to the JVM that it might want to run a garbage collection cycle,
+    the JVM is free to ignore your suggestion
+
+--  parseInt() vs valueOf()
+    int first       = Integer.parseInt("5");
+    Integer second  = Interger.valueOf("5");
+-   The parseInt() methods String return a primitive
+-   The valueOf() methods Primitive or String return a wrapper class object.
+
+17/01 ---------------------------------------------------------------------------------------------------
+
+CHAPTER 01
+
+--  Main()
+-   Note that the modifier final is optional and may be added to an entry point method
+-   The main() method is static and does not have access to any class instance variables. 
+
+--  Package
+    4: private Date rob = new Date();
+    5: private java.util.Date sharon = new java.util.Date();
+-   Line 4 will not compile because the Date class used is ambiguous
+-   The java command uses a period (.) to separate packages
+
+--  OOP
+-   object-oriented project tends to group data and the actions 
+    related to that data into a single object.
+-   Object-oriented programming is the technique of structuring data into objects, which may
+    contain data and a set of actions that operate on the data
+
+--  Byte Code vs Machine Code
+-   Byte code:      Java bytecode file is a binary encoded set of instructions designed to be run on any
+                    computer with a compatible JVM
+-   Machine code:   Machine code is a set of instructions that is directly machine-understandable 
+                    and it is processed by the Central Processing Unit (CPU). 
+
+--  scope
+-   Variable declared in a if-statement can't be referecne outside
+-    While using an instance reference to access a static variable
+    is not recommended, it does not prevent the variable from being read. 
+-   Class variable, are always in scope for the entire program
+
+
 
 14/01 ---------------------------------------------------------------------------------------------------
 
@@ -9,7 +98,7 @@
     class since the method is not visible to the parent class.
 
 --  Override Final
--   You cant inherit and override a final methid, unless its is hidden(private)
+-   You can't inherit and override a final method, unless its is hidden(private)
 
 
 

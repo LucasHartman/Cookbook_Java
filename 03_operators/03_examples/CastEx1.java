@@ -1,7 +1,7 @@
 public class CastEx1 {
 
        /*
-    --  Implicitlye Casting | Widing Casting |  Casting Down
+    --  Implicitlye Casting | Widing Casting |
     -   Converting lower -> higher data types
     -   Automatically
     -   The conversion between numeric data type to char or Boolean is not done automatically.
@@ -9,7 +9,7 @@ public class CastEx1 {
          byte -> short -> int -> long -> float -> double
 
 
-    --  Narrowing Casting | Explicit Easting | Casting Up
+    --  Narrowing Casting | Explicit Casting | 
     -   Converting highter -> lower data types
     -   Manually (by the programmer)
     -   If we do not perfrom casting the compiler reports a compiletime error.

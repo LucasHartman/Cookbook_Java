@@ -33,6 +33,9 @@
  * ...
  * The characters ... are called varargs (variable argument lists).
  * 
+ * Final
+ *  Note that the modifier final is optional and may be added to an entry point method
+ * 
  * 
  */
 
