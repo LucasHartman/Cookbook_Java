@@ -1,12 +1,157 @@
 
 /*
-19/01 ---------------------------------------------------------------------------------------------------
+
+21/02 ---------------------------------------------------------------------------------------------------
+
+--  Object Array
+    int[] lowercase = new int[0];
+    Integer[] uppercase = new Integer[0];
+-   While int is a primitive, all arrays are objects.
+
+
+--  Sort type String
+    tring[] nums = new String[] { "1", "9", "10" };
+    Arrays.sort(nums);
+    System.out.println(Arrays.toString(nums)); // 1, 10, 9
+-   we use alphabetical order when sorting. The character 1 sorts before the character 9,
+
+
+--  array initializer
+    float[] lion = new float[]/     LEGGAL
+    float[] tiger = new float[1];   ILLEGAL
+-   You are not allowed to specify the size separately.
+-   The size is inferred from the number of elements listed.
+
+
+--  Array Sort and Search
+-   The binarySearch() method requires a sorted array in order to return a correct result.
+    If the array is not sorted, the results of a binary search are undefined.
+-   If the array alrady is in alphabatical order, you don't need to sort 
+
+
+--  2 3D arrays
+    boolean[][][] bools, moreBools;
+
+-- String[] output
+    String[] strings = new String[2];
+    System.out.println(strings);
+-   [Ljava.lang.String;@74a14482
+
+-- var args 
+-  is not an array
+- cant uses method like .length
+
+
+-- 
+    String[] os = new String[] { "Mac", "Linux", "Windows" };
+    Arrays.sort(os);
+    System.out.println(Arrays.binarySearch(os, "RedHat")); // -3
+-   The target string of "RedHat" is not found in the sorted array. 
+-   If it was found, it would be between the second and third element. 
+-   The rule is to take the negative index of where it would be inserted and subtract 1
+
+
+--
+    boolean[][] bools[], moreBools;
+-    the array braces are split up. 
+-   This means that bools is a 3D array reference. 
+-   The braces both before and after the variable name count. 
+-   For moreBools, it is only a 2D array reference because 
+-   there are only two pairs of braces next to the type.
+
+--  no input
+    public static void main(String... args) {
+        Arrays.sort(args);
+        System.out.println(Arrays.toString(args)); // []
+        }
+-   Since no arguments are passed from the command line, this creates an empty array.
+-   Sorting an empty array is valid and results in an empty array.
+
+
+20/01 ---------------------------------------------------------------------------------------------------
+
+CHAPTER 3
+
+--  equals()
+-   equivalent value    ("String" "String")
+
+
+--  ==
+-   equivalent object   (new)
+
+
+--  else statement
+-   You can't have two else statement, dummy
+
+
+ -- logical operators (short-circuit) 
+ -  only takes boolean ( true && true )
+
+
+--  if sta-then
+    if(pterodactyl % 3 >= 1)
+        triceratops++;
+        triceratops--;
+-   triceratops--; is not part of the if statement
+-   if-then statement may execute a single statement or a block of code {}
+
+    if(flair >= 15 && flair < 37) {
+        System.out.print("Not enough");
+    } if(flair==37) {                       // Second if-then
+        System.out.print("Just right");
+    } else {
+        System.out.print("Too many");
+    }
+-   notice that the second if-then statement is not connected to
+    the first if-then statement, as there is no else joining them.
+
+
+--  order expression
+    3+2*(2+3)       () first
+    3+2*5           * first
+    3+10 = 13
+
+
+--  implicit typecasting, wide (automatically )
+-   conversion involves a smaller data type to the larger type size
+
+
+--  divide
+-   The subtraction - operator is used to find the difference between two numbers
+
+
+--  Ternary operations
+    distance<1000 ? "train" : 10;
+-   Ternary operations require both right-hand expressions to be of compatible data types.
+
+
+--  == vs equals
+    String bob = new String("bob");         new Object
+    String notBob = bob;                    reference SAME OBJECT in the heap
+    System.out.print((bob==notBob)+" "+(bob.equals(notBob)));   // true true
+-   ==          Same Object
+-   equals()    Same Value
+
+
+--  order of operation
+    12 + 6 * 3 % (1 + 1)   
+-   12 + 6 * 3 % 2       parentheses first
+-   12 + 18 % 2          * and  % have the same operator precedence
+-   12 + 0
+-   12
+
+
+--  The XOR ^ operator 
+-   evaluates to true if x and y differ and false if they are the same.
+
+
+
 
 
 
 18/01 ---------------------------------------------------------------------------------------------------
 
-CHAPTER 01
+CHAPTER 02
 
 --  variable declaration
     double num1, int num2 = 0;

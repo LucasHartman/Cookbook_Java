@@ -1,20 +1,15 @@
+
+/*
+--  if-else Branching
+-   The expression in parentheses must evaluate to (a boolean) true of false
+-   Most developers consider it good practive to enclode blocks with curly braces, 
+    even if there is only one statement in the block
+-   You might need to  nest if-else statement (it's nor recommended for readabitlity)
+-   if-then statement may execute a single statement or a block of code {}
+*/
+
+
 public class IfElseEx1 {
-
-    /*
-
-    if-else Branching
-
-    - The expression in parentheses must evaluate to (a boolean) true of false
-    - Most develpers consider it good practive to enclode blocks with curly braces, 
-      even if there is only one statement in the block
-    - You midhgt need ot nest if-else statement (it's nor recommended for readabitlity)
-    - 
-
-
-
-
-    */
-
     public static void main(String[] args) {
 
         // Example 1
@@ -33,5 +28,5 @@ public class IfElseEx1 {
         }
         
     }
-    
+
 }

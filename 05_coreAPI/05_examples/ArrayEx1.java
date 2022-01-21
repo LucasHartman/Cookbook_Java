@@ -1,23 +1,20 @@
+/*
+--  Arrays
+-   Arrays are objects in Java that store multiple variables of the same type.
+-   Arrays can hold either primitives or object references
+
+--  constructing an array
+-   Constructing an array means creating the array object on the heap (where all objects live)
+-   arrays must always be given a size at the time they are constructed.
+-   with each element containing an int with a default value of 0
+
+
+--  Initializing an Array
+-   Initializing an array means putting things into it
+-   they’re either primitive values (2, x, false, and so on) or objects referred 
+*/
+
 public class ArrayEx1 {
-
-    /*
-    --  Arrays
-    -   Arrays are objects in Java that store multiple variables of the same type.
-    -   Arrays can hold either primitives or object references
-
-    --  constructing an array
-    -   Constructing an array means creating the array object on the heap (where all objects live)
-    -   arrays must always be given a size at the time they are constructed.
-    -   with each element containing an int with a default value of 0
-
-
-    --  Initializing an Array
-    -   Initializing an array means putting things into it
-    -   they’re either primitive values (2, x, false, and so on) or objects referred 
-    -   
-
-    */
-
     public static void main(String[] args) {
 
 

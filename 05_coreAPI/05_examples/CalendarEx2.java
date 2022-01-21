@@ -9,8 +9,6 @@ import  java.time.Period; // period of time, for example, "one year, two months,
 
 
 public class CalendarEx2 {
-
-
     public static void main(String[] args) {
 
         LocalDate d = LocalDate.of(2018, 8, 15); // 2018-8-15
@@ -22,9 +20,5 @@ public class CalendarEx2 {
         d2 = d2.plusDays(1);    // 2018-8-18
 
         System.out.println(d +" " +d2 +" " +d3); // 2018-8-16   2018-8-18   2018-8-17      
-
-
-
-
     }
 }

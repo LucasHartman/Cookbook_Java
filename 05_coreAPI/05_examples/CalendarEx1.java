@@ -7,15 +7,14 @@ import java.time.format.DateTimeFormatter; // format date/time objects for outpu
 
 import  java.time.Period; // period of time, for example, "one year, two months, and three days."
 
+/*
+--  calendar object
+-   "calendar object," which we use to refer to objects of one of the several types of calendar-related classes
+-   most of the calendar- related objects you’ll create are immutable. Just like String objects!
+*/
+
 
 public class CalendarEx1 {
-
-    /*
-    --  calendar object
-    -   "calendar object," which we use to refer to objects of one of the several types of calendar-related classes
-    -   most of the calendar- related objects you’ll create are immutable. Just like String objects!
-    */
-
     public static void main(String[] args) {
 
         // 1.get current time

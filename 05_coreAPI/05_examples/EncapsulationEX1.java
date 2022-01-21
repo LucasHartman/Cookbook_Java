@@ -6,8 +6,10 @@ public class EncapsulationEX1 {
     private ArrayList<Integer> list;    // declase ArrayList, encapsulation 
     
     // Constructor
-    EncapsulationEX1() { list = new ArrayList<Integer>(); // initialize ArrayList
-
+    EncapsulationEX1() { 
+        list = new ArrayList<Integer>(); // initialize ArrayList
+    }
+    
     String getName()        { return name; }
     void addToList(int x)   { list.add(x); }
     ArrayList getList()     { return list; }    // break encapsulation
@@ -15,8 +17,5 @@ public class EncapsulationEX1 {
     // not just the reference to the original object.
 
 
-    public static void main(String args[]) {
-
-
-    }
+    public static void main(String args[]) {}
 }

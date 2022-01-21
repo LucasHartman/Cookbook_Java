@@ -1,13 +1,13 @@
+/*
+--  Method Chain
+-   chain of methods being called one after another.
+-   Each method in chaining returns an object.
+-   It violates the need of intermediate variables.
+
+    obj.method1().method2().method3();  
+*/
+
 class public MethodChainEx1 {
-
-    /*
-    --  Method Chain
-    -   chain of methods being called one after another.
-    -   Each method in chaining returns an object.
-    -   It violates the need of intermediate variables.
-
-        obj.method1().method2().method3();  
-    */
 
     private int id;      
     private String name;  
@@ -46,8 +46,6 @@ class public MethodChainEx1 {
     public static void main(String[] args) {
 
         MethodChainEx1 student = new MethodChainEx1();  
-
-        //method chaining  
-        student.setId(1183).setName("Herry Tangri").setAge(17).setStd(9).detail();  
+        student.setId(1183).setName("Herry Tangri").setAge(17).setStd(9).detail();   //method chaining
     }
 }
