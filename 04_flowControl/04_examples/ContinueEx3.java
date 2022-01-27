@@ -21,7 +21,7 @@ public class ContinueEx3 {
         
         for (int b : myFavoriteNumbers) {
             continue;
-            System.out.print(b + ", "); // <----- unreachable statement
+            System.out.print(b + ", "); // <----- error unreachable statement
             }
     }
     

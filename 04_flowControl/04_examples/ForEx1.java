@@ -26,7 +26,7 @@ public class ForEx1 {
         // Example Loop 2d Array
         int [][] twoDee = { {1,2,3}, {4,5,6}, {7,8,9} };
         for (int td : twoDee[2] ) {
-            System.out.println(td); // 3 6 9
+            System.out.println(td); // 7 8 9
          }
 
 

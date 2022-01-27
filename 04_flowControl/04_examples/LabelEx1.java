@@ -1,16 +1,12 @@
+/*
+Labeled Statement
+
+-  statements in a Java program can be labeled
+- A label statement must be placed just before the statement being labeled, 
+- and it consists of a valid identifier that ends with colon(:).
+*/
+    
 public class LabelEx1 {
-
-    /*
-    Labeled Statement
-
-    -  statements in a Java program can be labeled
-    - A label statement must be placed just before the statement being labeled, 
-    - and it consists of a valid identifier that ends with colon(:).
-
-
-
-    */
-
     public static void main(String[] args) {
         
         // Example: Label Break
@@ -38,7 +34,5 @@ public class LabelEx1 {
             }
         System.out.println("Good-Bye");
             
-
     }            
 }
-

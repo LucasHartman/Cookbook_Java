@@ -1,7 +1,188 @@
 
 /*
 
-21/02 ---------------------------------------------------------------------------------------------------
+26/01 ---------------------------------------------------------------------------------------------------
+
+CHAPTER 6
+
+-- protected vs packge-private
+-   protected           modifier allows access by subclasses and members within the same package
+                        protected access also provides package-private access.
+-   package-private     modifier allows access only to members in the same package
+
+
+not true!!!!!!!!!!!
+prefvent from compiling!!!!!!
+
+
+
+--  Static Variable
+-   The only variables always available to all instances of the class are those declared static
+-   public variables are only available if a reference to the object is maintained among all instances.
+
+
+--  boolean
+-   default initialization of a boolean instance variable is false
+
+
+--  public instance variable
+    package storage;
+    public class Box {
+        public String stuff;
+-   The class data, stuff, is declared public, allowing any class to modify the stuff variable
+        and making the implementation inherently unsafe for encapsulation
+
+
+--  Constructors
+-    Java only inserts a no-argument constructor if there are no other constructors in the class
+-    If a class extends a parent class that does not include a no-argument constructor,
+    the default no-argument constructor cannot be automatically inserted into the child class
+    by the compiler.
+
+
+-- passed-by-value
+-   variables are passed by value, not reference, in Java???
+-   changes made to primitive values and object references  
+    passed to a method are not reflected in the calling method.???
+-    Changes to the data within an object are visible to the calling method since 
+    the object that the copied reference points to is the same.
+
+
+
+-- ways to call a method, same package
+   MathHelper.roundValue(3.1)
+   useful.MathHelper.roundValue(65.3)
+-   since we are
+given that two classes are in the same package, therefore the package name would not be required.
+
+
+--  Encapuslation
+-   Encapsulation is about protecting the data elements.
+
+--  JavaBeans
+-   JavaBean methods use the prefixes get, set, and is for boolean values,
+
+
+--  import static
+    package clothes;
+    public class Store {
+    public static String getClothes() { return "dress"; }
+    }
+    
+    package wardrobe;
+    import static clothes.Store.getClothes;     <---------
+    public class Closet {
+    public void borrow() {
+        System.out.print("Borrowing clothes: "+getClothes());
+    }
+    }
+-   Closet class uses the method getClothes() without a reference to the class name Store,
+    therefore a static import is required
+-   A static import is used to import static members of another class.
+
+
+--  package-private access modifier
+-   the lack of an access modifier indicates that the member is package-private
+
+
+--  Instance Method
+-   An instance method or constructor has access to all static variables
+-    static methods and static initializers cannot
+    reference instance variables since they are defined across all instances
+    
+    private static final String monday;
+-   The declaration of monday does not compile, because the value of a static final vari-
+    able must be set when it is declared or in a static initialization block.
+
+
+    package park;
+    public class Tree {
+    public final static long numberOfTrees;
+    public final double height;
+    static {}
+    { final int initHeight = 2;
+        height = initHeight;
+    }
+    static {
+        numberOfTrees = 100;
+        height = 4;
+    }
+    }
+-   The last static initialization block accesses height, which is an instance variable,
+    not a static variable. Therefore, the code will not compile
+
+    
+
+
+24/01 ---------------------------------------------------------------------------------------------------
+
+CHAPTER 5
+
+--  Variable Scope
+-   variable can't be declared inside the loop. 
+
+--  for-each
+-   for-each loop is allowed to be used with arrays and ArrayList objects.  
+    StringBuilder is not an allowed type for this loop
+
+--
+    for (int i = 0, j = 0; i < nycTourLoops.length && j < times.length; i++; j++)
+-   Multiple update expressions are separated with a comma rather than a semicolon
+
+--
+    String tie = null;
+    while (tie == null);   <-----------
+       tie = "shoelace";
+       System.out.print(tie);
+-   the loop body is empty due to the semicolon right after the condition. 
+    This means the loop condition keeps runnin
+
+
+--  Remember to look for basic errors before wasting time tracking the flow
+-   In this case, the label of the loop is trying to use the keyword for. This is not allowed
+
+
+
+
+    public class RainForest extends Forest {
+    public RainForest(long treeCount) {
+        this.treeCount = treeCount+1;
+    }
+    public static void main(String[] birds) {
+        System.out.print(new RainForest(5).treeCount);
+    }
+    }
+    class Forest {
+    public long treeCount;
+    public Forest(long treeCount) {
+        this.treeCount = treeCount+2;
+    }
+    }
+-   Since a constructor call is not the first line of the RainForest() constructor, the com-
+    piler inserts the no-argument super() call. Since the parent class, Forest, does not define
+    a no-argument super() constructor, the RainForest() constructor does not compile,
+
+--  operator autocast
+-   by one using the addition + operator.
+    The addition + operator automatically promotes all byte and short values to int.
+
+    public class Football {
+        public static Long getScore(Long timeRemaining) {
+            return 2*timeRemaining; // m1
+        }
+        public static void main(String[] refs) {
+            final int startTime = 4;
+            System.out.print(getScore(startTime)); // m2
+    }
+-   The variable startTime can be automatically converted to Integer by the compiler, but
+    Integer is not a subclass of Long. Therefore, the code does not compile due the wrong vari-
+    able type being passed to the getScore()
+
+
+
+21/01 ---------------------------------------------------------------------------------------------------
+
+CHAPTER 4
 
 --  Object Array
     int[] lowercase = new int[0];
@@ -17,7 +198,7 @@
 
 
 --  array initializer
-    float[] lion = new float[]/     LEGGAL
+    float[] lion = new float[];     LEGGAL
     float[] tiger = new float[1];   ILLEGAL
 -   You are not allowed to specify the size separately.
 -   The size is inferred from the number of elements listed.
@@ -26,7 +207,7 @@
 --  Array Sort and Search
 -   The binarySearch() method requires a sorted array in order to return a correct result.
     If the array is not sorted, the results of a binary search are undefined.
--   If the array alrady is in alphabatical order, you don't need to sort 
+-   If the array already is in alphabatical order, you don't need to sort 
 
 
 --  2 3D arrays
