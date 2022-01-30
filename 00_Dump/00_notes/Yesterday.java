@@ -1,6 +1,141 @@
 
 /*
 
+28/01 ---------------------------------------------------------------------------------------------------
+
+--  try/catch
+-   A try block must include either a catch or finally block, or both
+
+
+--  local variable
+    try {
+         int score = 1;
+         System.out.print(score++);
+      } catch (Throwable t) {
+         System.out.print(score++);
+      } finally {
+         System.out.print(score++);
+      }
+      System.out.print(score++);
+-   score is defined only within the try block.
+    The other three places it is referenced, in the catch block, in the finally block, and out-
+    side the try-catch-finally block at the end, are not in scope for this variable
+
+
+--  checken exception
+-   ClassCastException, ArrayIndexOutOfBoundsException, and
+    IllegalArgumentException are unchecked exceptions and can be thrown at any time.
+    IOException is a checked exception that must be handled or declared when used
+
+--  Catch order
+-   IOException is a subclass of Exception, so it must appear first in any related catch blocks
+
+--  
+      try {
+         System.out.print('A');
+         throw new RuntimeException("Out of bounds!");
+      } catch (ArrayIndexOutOfBoundsException aioobe) {
+         System.out.print('B');
+         throw t;
+      } finally {
+         System.out.print('C');
+      }
+-   The application first enters the try block and outputs A. It then throws a
+    RuntimeException, but the exception is not caught by the catch block since
+    RuntimeException is not a subclass of ArrayIndexOutOfBoundsException (it is a superclass).
+
+
+--  
+    public class Fortress {
+   public void openDrawbridge() throws Exception {  // p1
+      try {
+         throw new Exception("Circle");
+      } catch (Exception e) {
+         System.out.print("Opening!");
+      } finally {
+         System.out.print("Walls");  // p2
+      }
+   }
+   public static void main(String[] moat) {
+      new Fortress().openDrawbridge();  // p3
+   }
+-   the openDrawbridge() method is called from within the main() method on line p3. The
+    openDrawbridge() method declares the checked exception, Exception, but the main()
+    method from which it is called does not handle or declare the exception. In order for this
+    code to compile, the main() method would have to have a try-catch statement around line
+    p3 that properly handles the checked exception, or the main() would have to be updated
+    to declare a compatible checked exception. For these reasons, line p3 does not compile
+
+--  final block
+-   inally block can throw an exception, in which case not every line of the finally block would be executed
+-   The finally block is called regardless of whether or not the related catch block is executed.
+-   Unlike an if-then statement, which can take a single statement, a finally statement requires brackets {}
+
+
+public class Printer {
+   public void print() {
+      try {
+         throw new FileNotFoundException();
+      } catch (IOException exception) {
+         System.out.print("Z");
+      } catch (FileNotFoundException enfe) {
+         System.out.print("X");
+      } finally {
+         System.out.print("Y");
+      }
+   }
+   public static void main(String... ink) {
+      new Printer().print();
+   }
+-    the catch blocks are used in the wrong order. Since
+    IOException is a superclass of FileNotFoundException, the FileNotFoundException is
+    considered unreachable code.
+
+
+--  Overrdien method
+-   Overridden methods cannot throw new or broader checked exceptions than the one they
+    inherit
+
+
+-   The code does not compile because the catch block is missing a variable type and
+    name, such as catch (Exception e). 
+
+package castles;
+class CastleUnderSiegeException extends Exception {}
+class KnightAttackingException extends CastleUnderSiegeException {}
+public class Citadel {
+   public void openDrawbridge() throws RuntimeException {  // q1WOW! eBook 
+www.wowebook.org
+Chapter 8  ■   Handling Exceptions 123
+      try {
+         throw new KnightAttackingException();
+      } catch (Exception e) {
+         throw new ClassCastException();
+      } finally {
+         throw new CastleUnderSiegeException();  // q2
+      }
+   }
+   public static void main(String[] moat) {
+      new Citadel().openDrawbridge();  // q3
+   }
+}
+-   The application does not compile, so Option D is incorrect. The checked
+KnightAttackingException thrown in the try block is handled by the associated catch
+block. The ClassCastException is an unchecked exception, so it is not required to be han-
+dled or declared and line q1 compiles without issue. The finally block throws a checked
+CastleUnderSiegeException, which is required to be handled or declared by the method,
+but is not. There is no try-catch around line q2, and the method does not declare a compat-
+ible checked exception, only an unchecked exception. For this reason, line q2 does not com-
+pile, and Option B is the correct answer. Lastly, line q3 compiles without issue because the
+unchecked RuntimeException is not required to be handled or declared by the call in the
+main() method.
+
+
+24
+
+
+
+
 26/01 ---------------------------------------------------------------------------------------------------
 
 CHAPTER 6

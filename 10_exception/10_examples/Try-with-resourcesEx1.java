@@ -8,9 +8,6 @@ public static Try-with-resourcesEx1 {
     -    Each resource in a try-with-resources statement must have its own data type 
         and be separated by a semicolon (;)
     -   A source can be null      FileReader r = null
-    -   
-
-
     */
 
     public void readFile(String file) {

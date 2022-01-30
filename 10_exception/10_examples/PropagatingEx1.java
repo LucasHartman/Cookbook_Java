@@ -10,7 +10,7 @@ public class PropagatingEx1 {
         stack is the chain of methods that your program executes 
         to get to the current method
     -   main() calls method a(), which calls method b(), which in turn calls method c()
-    -   The call stac consists of the following: 
+    -   The call stack consists of the following: 
         c
         b
         a
