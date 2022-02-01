@@ -1,6 +1,34 @@
 
 /*
 
+31/01 ---------------------------------------------------------------------------------------------------
+
+--  Checked exceptions
+-   Checked exceptions are commonly used to force a caller to deal with an expected ype of probelm,
+    such as the inability to write a file to the file system.
+-   add checked exceptions to a method signature, To force a caller to handle or declare its exceptions
+-   add checked exceptions to ta method signature, Declaring various different exceptions
+    informs the caller of the potential types of problems the method can encounter. 
+-   There may be no recourse in handling an exception other than to terminate the application.
+
+
+-   This code does not compile because the catch and finally blocks are in the wrong order
+
+--  Seen by Caller
+-   If both the catch and finally blocks throw an exception, the one from the finally
+    block is propagated to the caller, with the one from the catch block being dropped
+
+-   ClassCastException is a subclass of RuntimeException, so it must appear first in any
+    related catch blocks. If RuntimeException was to appear before ClassCastException,
+    then the ClassCastException block would be considered unreachable code, since any
+    thrown ClassCastException is already handled by the RuntimeException catch block.
+
+-   An overridden method must not throw any new or broader checked exceptions than the method it inherits.
+
+
+
+
+
 28/01 ---------------------------------------------------------------------------------------------------
 
 --  try/catch
@@ -47,7 +75,7 @@
 
 --  
     public class Fortress {
-   public void openDrawbridge() throws Exception {  // p1
+   public void openDrawbridge() throws Exception {  exception is t
       try {
          throw new Exception("Circle");
       } catch (Exception e) {
@@ -67,7 +95,7 @@
     to declare a compatible checked exception. For these reasons, line p3 does not compile
 
 --  final block
--   inally block can throw an exception, in which case not every line of the finally block would be executed
+-   Finally block can throw an exception, in which case not every line of the finally block would be executed
 -   The finally block is called regardless of whether or not the related catch block is executed.
 -   Unlike an if-then statement, which can take a single statement, a finally statement requires brackets {}
 
@@ -104,9 +132,7 @@ package castles;
 class CastleUnderSiegeException extends Exception {}
 class KnightAttackingException extends CastleUnderSiegeException {}
 public class Citadel {
-   public void openDrawbridge() throws RuntimeException {  // q1WOW! eBook 
-www.wowebook.org
-Chapter 8  ■   Handling Exceptions 123
+   public void openDrawbridge() throws RuntimeException {  // q1
       try {
          throw new KnightAttackingException();
       } catch (Exception e) {
