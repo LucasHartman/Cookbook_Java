@@ -1,10 +1,58 @@
 
 /*
-test
+
+01/02 ---------------------------------------------------------------------------------------------------
+
+List frisbees = new  List ();       // wrong
+List frisbees = new  Object ();     // wrong
+List frisbees = new  ArrayList ();  // Right
+-   List is an interface and not a class. It cannot be instantiated. 
+    While Object is a concrete class, it does not implement the List interface so it cannot be assigned to frisbees. 
+    Note that if you were to add an explicit cast, it would compile and throw an exception at runtime. 
+    Of the three options, only ArrayList can fill in the blank
+
+StringBuilder sb = new StringBuilder("radical").insert(sb.length(), "robots");
+-   Does note Compile: Calling the constructor and then insert() is an example of method chaining. However, 
+    the sb.length() call is a problem. The sb reference doesn’t exist until after the chained calls complete.
+
+--  Mutable ArrayList
+-   While the ArrayList is declared with an initial capacity of one element, 
+    it is free to expand as more elements are added. 
+
+Lambda
+-   Lambdas use deferred execution and can be run elsewhere in the codebase
+
+
+-- ArrayList set method
+chars.set(1, 'c');
+- Replace element not insert
+
+--  reverse method
+-   There is no reverse method on the String class
+
+--
+-   When creating a lambda with only one parameter, there are a few variants. 
+
+    Predicate<String> pred1 = s -> false;
+The pred1 approach shows the shortest way, where the type is omitted and the parentheses are omitted. 
+
+    Predicate<String> pred2 = (s) -> false;
+The pred2 approach is similar except it includes the parentheses. Both are legal. 
+
+    Predicate<String> pred4 = (String s) -> false;
+The  pred4 approach is the long way with both the parentheses and type specified.
+
+    Predicate<String> pred3 = String s -> false;
+The only one that doesn’t compile is pred3. The parentheses are required if including the type.
+
+
+
+
+
 31/01 ---------------------------------------------------------------------------------------------------
 
 --  Checked exceptions
--   Checked exceptions are commonly used to force a caller to deal with an expected ype of probelm,
+-   Checked exceptions are commonly used to force a caller to deal with an expected ype of problem,
     such as the inability to write a file to the file system.
 -   add checked exceptions to a method signature, To force a caller to handle or declare its exceptions
 -   add checked exceptions to ta method signature, Declaring various different exceptions
