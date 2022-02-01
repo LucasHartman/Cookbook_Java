@@ -46,7 +46,7 @@ The  pred4 approach is the long way with both the parentheses and type specified
 The only one that doesn’t compile is pred3. The parentheses are required if including the type.
 
 
-
+continue at 20...
 
 
 31/01 ---------------------------------------------------------------------------------------------------
