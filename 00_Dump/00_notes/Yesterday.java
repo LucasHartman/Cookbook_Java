@@ -46,7 +46,164 @@ The  pred4 approach is the long way with both the parentheses and type specified
 The only one that doesn’t compile is pred3. The parentheses are required if including the type.
 
 
-continue at 20...
+--  String Method
+-    String is the only type of these three to have a startsWith() method
+
+--  diamond operator
+List (P) balloon = new ArrayLIst (Q);
+-   <> can be inserted at position Q without making any other changes.
+
+
+import java.util.function.*;
+public class Card {
+   public static void main(String[] s) {
+      Predicate<String> pred = (BLANK) -> true;
+   }
+}
+- (String s) is wrong the main arguments is already s
+- (Object o) can be put into the BLANK
+ 
+-- Time
+-   LocalDate only includes the date portion and not the time portion. 
+-   LocalDateTime and LocalTime, both include the time elements
+
+--  Lambda
+-   When you’re using brackets, both the return keyword 
+    and semicolon are needed for the lambda to compile
+
+-- Date
+    LocalDate xmas = LocalDate.of(2016,  12,  25);
+    xmas.plusDays(-1);
+    System.out.println(xmas.getDayOfMonth());
+-   Java 8 date and time classes are immutable. The plusDays method returns a LocalDate 
+object presenting Christmas Eve (December 24th). However, this return value is ignored. 
+The xmas variable still represents the original value
+
+--  delete method
+1:   public class Legos {
+2:      public static void main(String[] args) {
+3:         StringBuilder sb = new StringBuilder();
+4:         sb.append("red");
+5:         sb.deleteCharAt(0);
+6:         sb.delete(1, 2);
+7:         System.out.println(sb);
+8:      }
+9:   }
+-   Line 3 creates an empty StringBuilder. Line 4 adds three characters to it. Line 5 
+    removes the first character, resulting in ed. Line 6 deletes the characters starting at position 
+    1 and ending right before position 2, which removes the character at index 1, which is d. 
+    The only character left is e
+
+
+Predicate clear = c -> c.equals("clear");
+System.out.println(clear.test("pink"));
+-   While it is common for a Predicate to have a generic type, it is not required. When 
+the generic is omitted, it is treated like a Predicate of type Object. Since the equals() 
+method exists on Object, this is fine. Option B is correct because the Predicate tests as 
+false
+
+Period period1 = Period.ofWeeks(1).ofDays(3);
+Period period2 = Period.ofDays(10);
+-    Be careful here. The Period class uses a static helper method to return the period. It 
+does not chain method calls, so period1 only represents three days. Since three days is less 
+than 10 days, period2 is larger
+
+
+
+
+import java.time.*;
+import java.time.format.*;
+ 
+public class HowLong {
+   public static void main(String[] args) {
+      LocalDate newYears = LocalDate.of(2017, 1, 1);
+      Period period = Period.ofDays(1);
+      DateTimeFormatter format = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+      System.out.print(format.format(newYears.minus(period)));
+   }
+}
+-    The code starts by correctly creating a date representing January 1, 2017, and a period 
+representing one day. It then explicitly defines the format as month followed by day  
+followed by year. Finally, the code subtracts a day, giving us the formatted version of 
+December 31, 2016
+
+
+
+
+String happy = " :) - (: ";
+String really = happy.trim();
+String question = ;
+System.out.println(really.equals(question));
+-   The  trim() method returns a String with all leading and trailing white space removed. 
+In this question, that’s the seven-character String: ":) - (:". Options A and B are 
+incorrect because they do not remove the first blank space in happy. Option D is incorrect 
+because it does not remove the last character in happy
+
+
+-- Period
+-   The  Period class creates immutable objects and is usually used to add/subtract from a 
+LocalDate or LocalDateTime object. It allows creating date, week, month, or year periods. 
+Since it cannot be used for time
+
+subString() learn more
+
+Different methods between StringBuilder, String, ArrayList, Array, learn more
+
+--  LocalTime
+-   minusNanos and plusNanos are the smallest units available
+
+
+
+import java.time.*;
+import java.time.format.*;
+ 
+public class HowLong {
+   public static void main(String[] args) {
+      LocalDate newYears = LocalDate.of(2017, 1, 1);
+      Period period = Period.ofDays(1);
+      DateTimeFormatter format = DateTimeFormatter.ofPattern("mm-dd-yyyy");
+      System.out.print(format.format(newYears.minus(period)));
+   }
+}
+-   When creating a formatter object, remember that MM represents month while mm repre-
+sents minute. Since there are not minutes defined on a LocalDate object, the code throws 
+an UnsupportedTemporalTypeException. You don’t need to know the name of the excep-
+tion, but you do need to know that an exception is thrown
+
+
+There are two signatures for the replace() method. One takes two char parameters. 
+The other signature takes a CharSequence. Both String and StringBuilder implement 
+this interface
+
+
+import java.util.*;
+import java.util.function.*;
+ 
+public class PrintNegative {
+   public static void main(String[] args) {
+      List<String> list = new ArrayList<>();
+      list.add("-5");
+      list.add("0");
+      list.add("5");
+      print(list, e -> e < 0);
+   }
+   public static void print(List<String> list, Predicate<Integer> p) {
+      for (String num : list)
+         if (p.test(num))
+            System.out.println(num);
+   }
+}
+-   Pay attention to the data types. The print() method is looping through a list of String 
+objects. However, the Predicate expects an Integer.  Since these don’t match, the if 
+statement does not compile
+
+
+
+LocalDate xmas = LocalDate.of(2016,  12,  25);
+xmas.setYear(2017);
+System.out.println(xmas.getYear());
+-   The Java 8 date and time classes are immutable. This means they do not contain setter 
+methods and the code does not compile
 
 
 31/01 ---------------------------------------------------------------------------------------------------
