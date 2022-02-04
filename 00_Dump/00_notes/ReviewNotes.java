@@ -58,6 +58,14 @@
         list.add(10);
         list.add("10"); // compile-time error
 
+--  Diamond Operator
+-   Source:    https://www.baeldung.com/java-diamond-operator
+-   Generics:   Which allowed us to parameterize the type arguments for classes.
+-   Specify the parameterized type in the constructor:
+    List<String> cars = new ArrayList<String>();
+-   Most suitable constructor declaration:
+    List<String> cars = new ArrayList<>();
+
 --  Collections API
 -   Source: https://www.geeksforgeeks.org/collections-in-java-2/
 -   The API has a basic set of interfaces like Collection, Set, List, 
@@ -119,7 +127,7 @@
             Elements in the returned list are also referenced by the invoking object.
 
 
---  StringBuilder
+--  java.lang.StringBuilder
 -   Source: https://www.javatpoint.com/StringBuilder-class
 -   Methods:
 1           append(String s)                                    append the specified string
@@ -227,10 +235,145 @@ this.myMethod();    Invoke method inside a method
                                                         the parentheses and type specified.
     Predicate<String> pred3 = String s -> false;        The only one that doesn’t compile is pred3. 
                                                         The parentheses are required if including the type.
+    Predicate pred4 = c -> c.equals("clear");           While it is common for a Predicate to have a generic type, 
+                                                        it is not required.
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+
+--  java.time.LocalTime
+-   Source: https://www.javatpoint.com/java-localtime
+-   LocalTime class is an immutable class 
+-   It represents time with a default format of hours-minutes-second.
+-   minusNanos and plusNanos are the smallest units available 
+-    The Java 8 date and time classes are immutable. This means they do not contain setter 
+-   Methods:
+1.  LocalDateTime atDate(LocalDate date)        append local data to local time
+                                                2018-12-05T09:32:42
+2.  int compareTo(LocalTime other)              compare 2 times
+                                                return 1 is greater
+                                                return 0 if equal
+                                                return -1 if less
+                                                int value = time1.compareTo(time2);
+3.  String format(DateTimeFormatter formatter)  Define time pattern
+    source: https://howtodoinjava.com/java/date-time/java-date-formatting/
+4. int get(TemporalField field)                 gets the value of the specified field
+                                                form this time as an int
+                                                LocalTime time = LocalTime.parse("12:30:30");
+                                                System.out.println(time.get(ChronoField.CLOCK_HOUR_OF_DAY)); // 12    
+5. Local Time minusHours(long hoursToSubtract)  return copy of this LocalTime
+                                                with the specified number of minutes subtracted
+                                                LocalTime time = LocalTime.parse("12:30:30");
+                                                System.out.println(time.minusMinutes(2)); // 12:28:30
+6.  static LocalTime now()                      obtain the current time from the system clock
+                                                in the default time-zone
+                                                LocalTime time = LocalTime.now();
+7.  static LocalTime of(int hour, in minutes, int second)
+                                                obtains an instance of LocalTime from 
+                                                year, month, day, hour, minute, second and nanosecond.
+                                                LocalTime time = LocalTime.of(6,30,40,50000);
+                                                System.out.println(time); // 06:30:40.000050
+8.  LocalTime plusHours(long hoursToAdd)        return cop of this LocalTime
+                                                plus the specified hours added        
+9. LocalTime plusMinutes(long minutesToAdd)     return cop of this LocalTime
+                                                plus the specified minutes added        
+
+--  java.time.LocalDate
+-   Source: https://www.javatpoint.com/java-localdate
+-   Java LocalDate class is an immutable class that represents Date 
+    with a default format of yyyy-mm-dd.
+
+--  java.time.LocalDateTime
+-   Source: https://www.javatpoint.com/java-localdatetime
+-   Java LocalDateTime class is an immutable date-time object that represents a date-time,
+    with the default format as yyyy-MM-dd-HH-mm-ss.zzz.
+
+--  java.time.Period
+-   Source: https://www.javatpoint.com/java-period
+-   The  Period class creates immutable objects and is usually used to add/subtract from a 
+    LocalDate or LocalDateTime object. It allows creating date, week, month, or year periods.
+
+-- java.time.format
+-  Source:  https://docs.oracle.com/javase/8/docs/api/java/time/format/package-summary.html
+-   Provides classes to print and parse dates and times. 
+-   When creating a formatter object, remember that MM represents month while mm represents minute.
 
 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+
+-- Checked Exceptions
+-   Checked exceptions are checked at compile-time.
+-   it should handle the exception using try-catch block or 
+    it should declare the exception using throws keyword.
+-   otherwise the program will not compile
+
+
+    -- Declare the exception - throws keyword
+    -   Syntax: myMethod() throws IOException {}
+    -   Avoid the compilation error is: 
+        Declare the exception in the method using throws keyword.
+    -   Throws is a keyword in Java which is used in the signature of method to 
+        indicate that this method might throw one of the listed type exceptions.
+    -   We can use throws keyword to delegate(NL:afvaardigen) the responsibility 
+        of exception handling to the caller
+    -   Then caller method is responsible to handle that exception. 
+ 
+
+    -- Handle - try-catch blocks
+    -   try block is used to enclose the code that might throw an exception.
+    -   catch block is used to handle the Exception
+
+    -   Object.Throwable.Exception.Checked Exception...
+    -   IO              Exception
+    -   ClassnotFound   Exception
+    -   Socket          Exception
+    -   SQL             Exception
+
+
+-- Unchecked Exceptions
+-   An unchecked exception is the one which occurs at the time of execution.
+-   These are also called as Runtime Exceptions.
+-   Runtime exceptions are ignored at the time of compilation. 
+-   This Exception occurs due to bad programming.
+-   Unchecked exception are not required to be handled or declared
+-   Error are almost impossible to handle
+-   Runtime Exceptions can be handled with the try-Catch Block
+
+    -   Object.Throwable.Exception.Runtime Exception...
+    -   Null Pointer            Exception
+    -   IndexoutofBound         Exception
+    -   ArrayIndexOutOfBounds   Exception
+    -   IllegalArgument         Exception
+    -   Numberformat            Exception
+    -   ClassCast               Exception
+    -   Object.Throwable.Error...
+    -   StackOverflow           Error
+    -   OutOfMemory             Error
+
+
+-- try/catch/final
+
+-- try keyword
+-   A try block must include either a catch or finally block, or both
+-   A local variable defined in the try block, is not in scope of the catch and final block
+
+-- catch keyword
+-   Catch and final blocks must be in the right order, catch first, final second
+-   Catch must have a variable type and name, like this: (Exception e)
+-   IOException is a subclass of Exception, so it must appear first in any related catch blocks
+-   You can catch exceptions with a super type like RuntimeException, but not with a subtype
+-- final keyword
+-   The finally block is called regardless of whether or not the related catch block is executed.   
+-   Finally block can throw an exception, in which case not every line of the finally block would be executed
+-   Unlike an if-then statement, which can take a single statement, a finally statement requires brackets {}
+
+--  throws keyword
+-   An overridden method must not throw any new or broader checked exceptions than the method it inherits.
+
+-- throw
+-   Syntex: throw new ClassCastException();
+
 
 
 
