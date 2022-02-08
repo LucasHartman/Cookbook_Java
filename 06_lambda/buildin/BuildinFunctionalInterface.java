@@ -8,10 +8,10 @@ import java.util.function.Consumer;
 import java.util.Random;
 
     /**
-     * In this file we use buildin functional interfaces, 
+     * In this file we build a functional interfaces, 
      * imported from java.util.function package
-     * Each functional inteface need to be declare inside a Lambda expression
-     * Check what type of argument and return value eacht Functionla Interface has.
+     * Each functional interface need to be declare inside a Lambda expression
+     * Check what type of argument and return value each Functional Interface has.
      * 
      * Full List:
      * https://www.educative.io/edpresso/a-list-of-all-the-functional-interfaces-in-java
@@ -20,9 +20,9 @@ import java.util.Random;
      *                                      Predicate
      * -------------------------------------------------------------------------------------
      * The Predicate interface has an abstract method test
-     * gives a Boolan value as a result
+     * gives a Boolean value as a result
      * 
-     * Abstracct Method Name:   test 
+     * Abstract Method Name:   test 
      * argument:                any type
      * return:                  boolean type
      * 
@@ -32,7 +32,7 @@ import java.util.Random;
      * -------------------------------------------------------------------------------------
      *                                      BinaryOperator
      * -------------------------------------------------------------------------------------
-     * The BinaryOperator interface has an asbstract method
+     * The BinaryOperator interface has an abstract method
      * apply which takes two argument and return a result of same type.
      * 
      * Abstract Method Name:    apply
@@ -56,7 +56,7 @@ import java.util.Random;
      * -------------------------------------------------------------------------------------
      *                                      Supplier 
      * -------------------------------------------------------------------------------------
-     * The Supplier funcital interface has an abstract method "get"
+     * The Supplier functional interface has an abstract method "get"
      * Supplier is a functional interface; it takes no arguments and returns a result.
      * 
      * Abstract Method Name:    get
@@ -70,11 +70,11 @@ import java.util.Random;
      * -------------------------------------------------------------------------------------
      *                                      Consumer 
      * -------------------------------------------------------------------------------------
-     * The Consumer funcital interface has an abstract method "accept"
+     * The Consumer functional interface has an abstract method "accept"
      * Consumer is a functional interface; it takes one arguments and returns nothing.
      * Often uses for print a message
      * 
-     * Abstract Method Name:    accapt
+     * Abstract Method Name:    accept
      * Argument;                any
      * return:                  none
      * 

@@ -1,14 +1,14 @@
 
     /**
-     * Creating your own functionla interface 101
+     * Creating your own functional interface 101
      * Steps:
      * 1. Define a function interface, which has a Single Abstract Method
-     * 2. Declare the sing abstract metod by turning it into a lambda expression
+     * 2. Declare the sing abstract method by turning it into a lambda expression
      * 3. Initiate the lambda expression
      * 
      * 
      * 
-     * functionla interface
+     * Functional interface
      * - Any interface with a SAM(Single Abstract Method)
      * - a functional interface may still have multiple default methods.
      * - It's recommended that all functional interfaces have an informative @FunctionalInterface annotation.

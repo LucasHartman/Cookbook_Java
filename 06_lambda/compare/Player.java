@@ -9,10 +9,10 @@
  * 
  * SETUP
  * 1. We create a player class, with a ranking, name and age field
- * 2. Create a Concstructor that assign argument to the fields
+ * 2. Create a Constructor that assign argument to the fields
  * 3. Create get and set method for all the fields
  * 4. Create a new class (PlayerSorter.java) were we can create our players
- * 5. Create an Arraylist and add a number of players, using the Player Constructor
+ * 5. Create an ArrayList and add a number of players, using the Player Constructor
  * 
  * SORTER
  * We got our players, with names, age and rank, but how can we sort them by rank or age or even name?
@@ -86,7 +86,7 @@ public class Player implements Comparable<Player> {
     /*
     @override       we want to edit the compareTo function
     compareTo()     compare to values and returns a int value
-                    - Negative value means taht the first object is smaller than second object
+                    - Negative value means that the first object is smaller than second object
                     - The value 0 means the two object are equal
                     - Positive value means that the first object is larger than the second object
     compare()       Accepts 2 argument and returns an integer value
