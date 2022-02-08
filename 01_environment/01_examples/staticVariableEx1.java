@@ -6,6 +6,13 @@
     regardless of how many objects are created from it.
 -   Static variables are stored in the static memory
 -   Static variables can be accessed by calling with the class name ClassName.VariableName.
+
+-- static final variable initialization
+    private static final String monday;
+-   The declaration of monday does not compile, because the value of a static final vari-
+    able must be set when it is declared or in a static initialization block.
+
+
 */
 
 public class staticVariableEx1 {

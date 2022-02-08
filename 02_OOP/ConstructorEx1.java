@@ -40,6 +40,19 @@
     constructor) or to super().
  -  The compiler will add a call to super() unless you have already put in a call to this() or
     super().
+
+    
+-- No-arg Constructors
+-    Java only inserts a no-argument constructor if there are no other constructors in the class
+-    If a class extends a parent class that does not include a no-argument constructor,
+    the default no-argument constructor cannot be automatically inserted into the child class
+    by the compiler.
+
+
+--  No-arg constructor
+-   If a parent class does not include a no-argument constructor, a child class can still
+    explicitly declare one; it just has to call an appropriate parent constructor with super()
+
 */ 
 
 class A {

@@ -9,7 +9,12 @@
 
 -   Private methods can't be overridden
 -   Static methods  can't be overridden
--   Final methods   can't be overriden.
+-   Final methods   can't be overridden.
+
+--  Main()
+-  The main method can be final
+-  Final method can't be overridden
+-  We can access final methods in the subclass but we can not override final methods.
 */
 
 class Parent {

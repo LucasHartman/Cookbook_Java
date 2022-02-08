@@ -1,23 +1,29 @@
 public class ShortCircuitEx1 {
 
     /* 
-    logical operators (short-circuit) 
 
-    AND (&&)        Short-circuit 
-    OR (||)         Short-circuit
+    -- Logical Operators (short-circuiting)
+-    Source: https://www.geeksforgeeks.org/java-logical-operators-with-examples/
+-   perform logical “AND”, “OR” and “NOT” operation
+-   similar to AND gate and OR gate in digital electronics. 
+-   keep in mind is the SECOND CONDITION IS NOT EVALUATED if the first one is false
+-   it has a short-circuiting effect.
+-   AND (&&)    if both are true
+                if (true && true) {}
+-   OR (||)     if one is true
+                if (false || true) {}
+-   NOT (!)     Unary Operator, returns opposite value
+                if (!false) // is true
     
-    They are used to link boolean expressions together to form bigger boolan expressions.
-    
-    Short-Circuide (&& ||) 
-    - Meaning they don't evaluate the right hand side if it not necessary
-    Example:  
-    if left hand side is false no need to evaluate right hand side one. 
-    -  short-circuiting operators can be slightly slower because they cause branching in the program execution
+-- Short-Circuit (&& ||) 
+-   Meaning they don't evaluate the right hand side if it not necessary
+-   if left hand side is false no need to evaluate right hand side one. 
+-  short-circuiting operators can be slightly slower because they cause branching in the program execution
 
-    Non-Short-Circuid (& |) 
-    - they evaluate both side of the expression, ALWAYS!
+-- Non-Short-Circuit (& |) 
+-   they evaluate both side of the expression, ALWAYS!
     even if the first operant (lef side) is false, the second operant will still be evalued.
-    */
+*/
 
     public static void main(String[] args) {
 

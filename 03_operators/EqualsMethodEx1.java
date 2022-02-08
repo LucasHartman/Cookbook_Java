@@ -1,19 +1,27 @@
-class Budgie {
+/*
+--  equals() vs ==
+-   Source: https://www.geeksforgeeks.org/difference-between-and-equals-method-in-java/
+-   equals()        method compares     value    (String.eqaults(String)
+-   ==              operator compares   object   (Object == Object)
+-   Example
+    String bob = new String("bob");         new Object
+    String notBob = bob;                    reference SAME OBJECT in the heap
+    System.out.print((bob==notBob)+" "+(bob.equals(notBob)));   // true true
 
-}
+
+--  == operator
+-   Reference comparison
+-   Checks if both references points to same location or not.
+
+
+--  equals()
+-   equals() method should be used for content comparison
+-   Evaluates the content to check the equality.
+*/
+
+    class Budgie {}
 
 public class EqualsMethodEx1 {
-
-    /*
-    --  == operator
-    -   Reference comparison
-    -   Checks if both references points to same location or not.
-
-
-    --  equals()
-    -   equals() method should be used for content comparison
-    -   Evaluates the content to check the equality.
-    */
 
     enum Color { RED, BLUE } // ; is optional
 
@@ -40,8 +48,6 @@ public class EqualsMethodEx1 {
 
         // equals() enum comparison
         Boolean ec = c1.equals(c2);     // fasle    (different references)
-
-
     }
     
 }

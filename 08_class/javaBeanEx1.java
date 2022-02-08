@@ -1,3 +1,19 @@
+/*
+-- JavaBeans
+-   Source: https://www.tutorialspoint.com/jsp/jsp_java_beans.htm
+-   specially constructed Java class written in the Java
+-   1. It provides a default, no-argument constructor.
+-   2. It may have a number of "getter" and "setter" methods for the properties.
+-   3. Implements java.io.Serializable
+-   Example:
+    public class Employee implements java.io.Serializable{  
+        private int id;  
+        public Employee(){}  
+        public void setId(int id){this.id=id;}  
+        public int getId(){return id;}  
+    }  
+*/
+
 public class javaBeanEx1 {
 
     private String desc;

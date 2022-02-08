@@ -15,6 +15,11 @@
 -    final variable cannot be reassigned.
 -   A final variable can be explicitly initialized only once.
 
+
+-- static final variable initialization
+    private static final String monday;
+-   The declaration of monday does not compile, because the value of a static final vari-
+    able must be set when it is declared or in a static initialization block.
 */
 
 
