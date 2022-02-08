@@ -4,7 +4,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class PlayerSorter {
-
     public static void main(String[] args) {
 
         // Create a list of players using the Player Class Constructor
