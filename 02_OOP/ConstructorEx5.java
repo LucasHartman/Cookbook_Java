@@ -1,6 +1,6 @@
 
 /*
---  Constructoer Super()
+--  Constructor Super()
 */
 
 class Cinema {
@@ -15,9 +15,9 @@ public class ConstructorEx5 extends Cinema {
     // child constructor
     public ConstructorEx5(String movie) {
 
-        super(movie); // initialize the parent constructor with Sting agrument
-        // If there was no super(movie), the compile would automaticlye make a super()
-        // but because the parent class has no "no-arg concstrucot", it would result into a compile error.
+        super(movie); // initialize the parent constructor with Sting argument
+        // If there was no super(movie), the compile would automatically make a super()
+        // but because the parent class has no "no-arg constructor", it would result into a compile error.
     }
 
     public static void main(String[] showing) {

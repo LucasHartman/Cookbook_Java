@@ -40,19 +40,19 @@ public class CastEx1 extends Car {
         // // illegal - Vehicle interface reference
         //Vehicle v1 = new Vehicle(); 
 
-        // A "Reference Variable" whose "Objtect Type" is an "Interface" that is implemented by the class from which the object was instantiated.
+        // A "Reference Variable" whose "Object Type" is an "Interface" that is implemented by the class from which the object was instantiated.
         Vehicle v2 = new Car();
 
-        // A "Reference Variable" whose "Objtect Type" is the same as the class from which the object was instantiated.
+        // A "Reference Variable" whose "Object Type" is the same as the class from which the object was instantiated.
         Car c1 = new Car();
 
-        // A "Reference Variable" whose "Objtect Type" is a "Super Class" of the class from which the object was instantiated.
+        // A "Reference Variable" whose "Object Type" is a "Super Class" of the class from which the object was instantiated.
         Car c2 = new CastEx1();
 
-        // A "Reference Variable" whose "Objtect Type" is an "Interface" that is implemented by a super class of the class from which the object was instantiated.
+        // A "Reference Variable" whose "Object Type" is an "Interface" that is implemented by a super class of the class from which the object was instantiated.
         Vehicle v3 = new CastEx1(); 
 
-        // A "Reference Variable" whose "Objtect Type" is the same as the class from which the object was instantiated.
+        // A "Reference Variable" whose "Object Type" is the same as the class from which the object was instantiated.
         CastEx1 c3 = new CastEx1();
     }
 }

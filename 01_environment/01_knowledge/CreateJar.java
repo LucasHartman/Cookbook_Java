@@ -11,10 +11,10 @@
  *                              -cvf <jarFilename>  Create, verbose, file
  * 
  *  Steps
- *  1. Terminal Current direcotry
+ *  1. Terminal Current directory
  *  2. jar -cvf myNewFile.jar -C <name_of_folder_u_want_to_place_in_the_JAR> .
  *  
- * jar all file in the current dirctory
+ * jar all file in the current directory
  * jar -cvf myNewFile.jar .
  * 
  * long version

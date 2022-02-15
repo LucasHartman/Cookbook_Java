@@ -16,7 +16,7 @@ class Parent {
         return x;
     }
 
-    // changed argument list & retrun type
+    // changed argument list & return type
     public String myMethod(String x) {
         System.out.println("myMethod returns String");
         return x;

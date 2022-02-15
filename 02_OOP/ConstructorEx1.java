@@ -1,8 +1,9 @@
 
 /*
 --  Constructor
+-    A constructor is used to initialize an object not to build the object.         
 -   You CANNOT make a new object without invoking a constructor.
--   alo the constructor of each of its superclasses!
+-   also the constructor of each of its superclasses!
 -   But just because a class must have a constructor doesn’t mean the programmer has to type it. 
 -   The compiler-generated constructor is called the default constructor
 -   Constructors are the code that runs whenever you use the keyword "new".
@@ -13,7 +14,7 @@
 -   Same name as class
 -   no return type
 -   legal (but stupid), method with the same name as the constructor
--   if you don't type a constructor into your class code, a default construcotr will be automatically generated
+-   if you don't type a constructor into your class code, a default constructor will be automatically generated
 -   The default constructor is a no-arg constructor
 -    Every constructor has, as its first statement, either a call to an overloaded constructor
     (this()) or a call to the superclass constructor (super())

@@ -11,12 +11,12 @@ public class NonShortCircuiteEx1 {
     ^   XOR       Only one operand must be true.
     !   NOR       inverts the outcome
 
-    Non-Short-Circuid (& |) 
+    Non-Short-Circuit (& |) 
     - they evaluate both side of the expression, ALWAYS!
     even if the first operant (left side) is false, the second operant will still be evalued.
 
 
-    Short-Circuide (&& ||) 
+    Short-Circuited (&& ||) 
     - Meaning they don't evaluate the right hand side if it that doesn't necessary
     Example:  
     if left hand side is false no need to evaluate right hand side one. 

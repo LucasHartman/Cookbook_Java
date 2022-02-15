@@ -1,15 +1,29 @@
 
 /*
--- Overriding
--   inherits a method from a supertype, you have the opportunity to override the method
+-- Overload
+-   REUSE name
+-   MUST change argument
+-   MAY change return type
+-   MAY change access modifier
+-   MAY throw any exception thrown / not thrown
 
--   SAME name, SAME argument list SAME return type 
--   access modifier must be the same or broader in the child method
--   Thrown checked exceptions NOT new or broader
+-- Override
+-   Reuse name
+-   MUST have same argument
+-   MUST have same return type (or sub-type)
+-   MAY narrow access modifier, but not widen
+-   IF super-class method does not throw an exception,
+    subclass overriding method can only throws the unchecked exception,
+    throwing checked exception will lead to compile-time error.
+-   IF super-class method throws an exception,
+    subclass overriding method can only throw same or subclass exception
+-   ALSO there is no issue if subclass overridden method is not throwing any exception.
 
--   Private methods can't be overridden
--   Static methods  can't be overridden
--   Final methods   can't be overridden.
+-   default methods inside the interface can be overridden
+-   static  methods can't be overridden
+-   Private method can't be overridden
+-   Final   methods can't be overridden
+-   instance variables can't be overridden, they are there own value
 
 --  Main()
 -  The main method can be final

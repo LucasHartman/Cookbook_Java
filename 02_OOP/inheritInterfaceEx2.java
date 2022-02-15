@@ -13,7 +13,7 @@ Static variable                 Yes                 Only constants
 Abstract methods                Yes                 Yes
 Instance methods                Yes                 Java 8 default methods
 Static methods                  Yes                 Java 8, inherited no, accessible yes
-Contructors                     No                  Not applicable  (don't work in an Interface)
+Constructors                     No                  Not applicable  (don't work in an Interface)
 Initialization block            No                  Not applicable  (don't work in an Interface)
 */
 

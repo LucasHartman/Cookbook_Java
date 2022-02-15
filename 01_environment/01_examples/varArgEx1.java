@@ -1,6 +1,6 @@
 /*
 --  vararg
--   The varrags allows the method to accept zero or muliple arguments.
+-   The varrags allows the method to accept zero or multiple arguments.
 */
 
 public class varArgEx1 {

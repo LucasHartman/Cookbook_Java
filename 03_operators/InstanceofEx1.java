@@ -5,7 +5,7 @@ public class InstanceofEx1 extends Parent {
     /*
     -- instanceof comparison 
 
-    - The instanceof operator is used for object refence varialbes only
+    - The instanceof operator is used for object reference variables only
     - Same type or same Parent type
     - example:      Child obj1  = new Child;
                     Parent obj2 = new Parent;

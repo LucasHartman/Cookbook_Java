@@ -14,7 +14,7 @@ public class ConstructorEx4 {
 
     String name;
 
-    // This is the Defalut constructor
+    // This is the Default constructor
     ConstructorEx4() { 
         this.name = "dog";
         System.out.println("Animal name: " + name); 

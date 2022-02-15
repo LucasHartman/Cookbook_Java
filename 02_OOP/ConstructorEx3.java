@@ -7,14 +7,10 @@
 
 public class ConstructorEx3 {
 
-    // This is the Defalut constructor
+    // This is your constructor, but is not a Default one
     ConstructorEx3(String name) { 
         System.out.println("Constructor " +name); 
     }
-
-
-
-
 
     public static void main(String[] args) {
 

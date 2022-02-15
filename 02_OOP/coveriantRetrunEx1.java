@@ -17,7 +17,7 @@ class Alpha {
 class Beta extedns Alpha {
 
     @Override
-    Beta doStuff(char c) { // different type, but legel override
+    Beta doStuff(char c) { // different type, but legal override
         return new Beta();  // different return type
     }
 }

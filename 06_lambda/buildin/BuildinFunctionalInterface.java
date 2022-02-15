@@ -15,90 +15,51 @@ import java.util.Random;
      * 
      * Full List:
      * https://www.educative.io/edpresso/a-list-of-all-the-functional-interfaces-in-java
-     * 
-     * -------------------------------------------------------------------------------------
-     *                                      Predicate
-     * -------------------------------------------------------------------------------------
-     * The Predicate interface has an abstract method test
-     * gives a Boolean value as a result
-     * 
-     * Abstract Method Name:   test 
-     * argument:                any type
-     * return:                  boolean type
-     * 
-     * public interface Predicate {
-     *      public boolean test(T  t); }
-     * 
-     * -------------------------------------------------------------------------------------
-     *                                      BinaryOperator
-     * -------------------------------------------------------------------------------------
-     * The BinaryOperator interface has an abstract method
-     * apply which takes two argument and return a result of same type.
-     * 
-     * Abstract Method Name:    apply
-     * Argument;                2 any types
-     * return:                  same as argument
-     * 
-     * public interface BinaryOperator {
-     *      public T apply(T x, T y);
-     * } 
-     * 
-     * -------------------------------------------------------------------------------------
-     *                                      Function 
-     * -------------------------------------------------------------------------------------
-     * The Function interface has an abstract method apply which takes argument of 
-     * type T and returns a result of type R.
-     * 
-     * Abstract Method Name:    apply
-     * Argument;                any
-     * return:                  any
-     * 
-     * -------------------------------------------------------------------------------------
-     *                                      Supplier 
-     * -------------------------------------------------------------------------------------
-     * The Supplier functional interface has an abstract method "get"
-     * Supplier is a functional interface; it takes no arguments and returns a result.
-     * 
-     * Abstract Method Name:    get
-     * Argument;                none
-     * return:                  any
-     * 
-     * public interface Supplier<T> {
-     *      T get();
-     * }
-     * 
-     * -------------------------------------------------------------------------------------
-     *                                      Consumer 
-     * -------------------------------------------------------------------------------------
-     * The Consumer functional interface has an abstract method "accept"
-     * Consumer is a functional interface; it takes one arguments and returns nothing.
-     * Often uses for print a message
-     * 
-     * Abstract Method Name:    accept
-     * Argument;                any
-     * return:                  none
-     * 
-     * public interface Consumer {
-     *      void accept(T t)
-     * }
-     * 
-     * 
-     *  -------------------------------------------------------------------------------------
-     *                                      MORE 
-     * -------------------------------------------------------------------------------------
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
+
+     
+-- Predicate
+-   The Predicate interface has an abstract method test
+-   Gives a Boolean value as a result
+-   Abstract Method Name:       test 
+-   Argument:                   any type
+-   Return:                     boolean type 
+-   public interface Predicate  { public boolean test(T  t); }
+
+
+-- BinaryOperator
+-   The BinaryOperator interface has an abstract method
+    apply which takes two argument and return a result of same type. 
+- Abstract Method Name:             apply
+- Argument;                         2 any types
+- return:                           same as argument
+- public interface BinaryOperator   { public T apply(T x, T y); } 
+
+
+-- Function 
+-   The Function interface has an abstract method apply which takes argument of 
+    type T and returns a result of type R. 
+-   Abstract Method Name:    apply
+-   Argument;                any
+-   return:                  any
+
+
+-- Supplier 
+-   The Supplier functional interface has an abstract method "get"
+-   Supplier is a functional interface; it takes no arguments and returns a result. 
+-   Abstract Method Name:    get
+-   Argument;                none
+-   return:                  any 
+-   public interface Supplier<T> { T get(); }
+ 
+-- Consumer 
+ -  The Consumer functional interface has an abstract method "accept"
+-   Consumer is a functional interface; it takes one arguments and returns nothing.
+-   Often uses for print a message 
+-   Abstract Method Name:    accept
+-   Argument;                any
+-   return:                  none 
+-   public interface Consumer { void accept(T t) }
+
      * 
      * 
      * 

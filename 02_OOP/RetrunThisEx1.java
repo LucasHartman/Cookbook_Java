@@ -10,7 +10,7 @@ class Student {
         this.name = name;
         this.age = age;
 
-        return this; // retrun Student Class
+        return this; // return Student Class
     }
 
     public void display() {

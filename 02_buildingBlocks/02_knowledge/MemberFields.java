@@ -1,5 +1,5 @@
 /**
- * Reading and Wrinting Member Fields
+ * Reading and Writing Member Fields
  * - It’s possible to read and write instance variables directly from the caller. 
  * - Reading a variable is known as getting it.
  * - Writing to a variable is known as setting it. 

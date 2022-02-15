@@ -4,7 +4,6 @@
 -   A final class can extend other classes; It can be a subclass but not a superclass.
 
 
-
 --  final method
 -   it cannot be overridden
 -   The main intention of making a method final would be that the content 
