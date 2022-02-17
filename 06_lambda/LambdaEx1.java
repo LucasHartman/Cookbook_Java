@@ -52,8 +52,8 @@ class Person {
 
 public class LambdaEx1 {
 
-    // Declare Lambbda
-    public static void checkAge(List <Person> list, Predicate < Person> predicate) {
+    // Declare Lambda
+    public static void checkAge(List<Person>list, Predicate<Person> predicate) {
         for (Person p : list) {
             if (predicate.test (p)) {
                 System.out.println (p.name +" ");

@@ -3,13 +3,26 @@
 Access Modifiers
 ----------------------------------------------------------------------------------------------------- 
 
+                                    default         private         protected           public
+______________________________________________________________________________________________
+Same Class                          Yes             Yes             Yes                 Yes
+Same Package subclass               Yes             No              Yes                 Yes
+Same package non-subclass           Yes             No              Yes                 Yes
+Different package subclass          No              No              Yes                 Yes
+Different package non-subclass      No              No              No                  Yes
+
 -- protected
 -   The protected and default access control levels are almost identical, 
     but with one critical difference.
 -   protected member can be accessed (through inheritance) by a subclass 
     even if the subclass is in a different package. 
 
-    
+- protected member can't   be used in an interface (also true for default methods)
+- protected member can     be used in an abstract class
+- protected member from another package can't be imported (non child class)
+- A inherited public method from the interface can't be reduces to protected 
+
+
 -- Package (Default)
 -   Default protection is what you get when you DON'T type an access modifier 
     in the member declaration.
@@ -29,11 +42,14 @@ this, super
 -----------------------------------------------------------------------------------------------------
 
 --  super()
--   It is used to invoke Parent class constructor from Child
+-   The parent default constructor is automatically initiated in the child class
+-   Parent constructor with an argument can be invoked in the child class constructor.
 -   It must be used only inside Child’s constructor.
 -   Call to super() must be the first statement.
--   Used to initialize parent class object in the process of child object creation.
 
+-- super.member
+-   get parent member
+-   this does not work in the parent class
 
 --  this()
 -   It is used to invoke current class constructor
@@ -48,8 +64,10 @@ this, super
 -   return this;        return the current class instance in a method
 -   myMethod(this)      input class instance method or constructor
 -   this.myMethod();    Invoke method inside a method
+
+
 ----------------------------------------------------------------------------------------------------- 
-Override, Overload
+Overload, Override 
 ----------------------------------------------------------------------------------------------------- 
 
 -- Overload
@@ -106,7 +124,7 @@ Instance, Static
 -   Access a static import: staticMethod()
 -   Access a static member though an object reference variable is possible
 -   Static methods can access the static variables and static methods directly.
--   Static method CAN'T access an instance  method or variable
+-   Static method CAN'T access an instance method or variable
 -   Static method CAN'T be overridden, but can be redefined in a subclass (Hidden Method)
 
 
@@ -124,7 +142,7 @@ Instance, Static
 Implicit, Explicit
 -----------------------------------------------------------------------------------------------------
 
-    --  Implicitly Casting | Widen Casting |
+    --  Implicit Casting (Widening)
     -   Converting lower -> higher data types
     -   Automatically
     -   The conversion between numeric data type to char or Boolean is not done automatically.
@@ -132,12 +150,15 @@ Implicit, Explicit
          byte -> short -> int -> long -> float -> double
 
 
-    --  Narrowing Casting | Explicit Casting | 
+    --  Explicit Casting (Narrowing)
     -   Converting higher -> lower data types
     -   Manually (by the programmer)
     -   If we do not perform casting the compiler reports a compile-time error.
 
          double -> float -> long -> int -> short -> byte  
+
+         long l = 5;
+         int i  = (int) l;
 
 
 -----------------------------------------------------------------------------------------------------
@@ -145,13 +166,13 @@ equals(), ==, instanceof()
 -----------------------------------------------------------------------------------------------------
 
 --  == operator
--   ==              operator compares   object   (Object == Object)
+-   ==              operator compares       object        (Object == Object)
 -   Reference comparison
 -   Checks if both references points to same location or not.
 
 
 --  equals()
--   equals()        method compares     value    (String.eqaults(String)
+-   equals()        method compares         value       (String.eqaults(String)
 -   equals() method should be used for content comparison
 -   Evaluates the content to check the equality.
 -   An enum can be compared using either equals() or ==.
@@ -160,27 +181,27 @@ equals(), ==, instanceof()
 -- instanceof comparison 
 -    The instanceof operator is used for object reference variables only
 -   Same type or same Parent type
--   implements and extends instance the parent class
+-   implements and extends the parent class
 
 
 -----------------------------------------------------------------------------------------------------
 (Non)-Short-Circuit
 -----------------------------------------------------------------------------------------------------
 
-    Non-Short-Circuit (& |) 
-    - they evaluate both side of the expression, ALWAYS!
-    even if the first operant (left side) is false, the second operant will still be evalued.
-    &       AND       both must be true
-    |       OR        at least one must be true
-    ^       XOR       Only one operand must be true.
-    !       NOR       inverts the outcome
+    -- Non-Short-Circuit (& |) 
+    -   They evaluate both side of the expression, ALWAYS!
+        even if the first operant (left side) is false, the second operant will still be evalued.
+    
+        &       AND       Both must be true
+        |       OR        At least one must be true
+        ^       XOR       Only one operand must be true.
+        !       NOR       Inverts the outcome
 
 
-    Short-Circuited (&& ||) 
-    - Meaning they don't evaluate the right hand side if it that doesn't necessary
-    Example:  
-    if left hand side is false no need to evaluate right hand side one. 
-    -  short-circuiting operators can be slightly slower because they cause branching in the program execution
+    -- Short-Circuited (&& ||) 
+    -   Meaning they don't evaluate the right hand side if it that doesn't necessary
+    -   Example: if left hand side is false no need to evaluate right hand side one. 
+    -   Short-circuiting operators can be slightly slower because they cause branching in the program execution
 
 
 -----------------------------------------------------------------------------------------------------
@@ -188,14 +209,14 @@ Precedence
 -----------------------------------------------------------------------------------------------------
 
 _________________________________________________________________________________________________________________________________
-1. Unary Operators                         -      !      ++,    --          negative    invert      increment
-2. Multiplication, division, modulus        *      /      %                 multiple    division     remainder
-3. Addition, subtraction                   +      -                         add         subtract
-4. Relation operators                      <      >      <=    >=           greater     lesser      lesser-equal     greater-equal
-5. Equality operators                      ==     !=                        equal       not-equal
-6. Logical operators (non-circuit)         &      |                         AND         OR
-7. Short-circuit                           &&     ||                        AND         OR
-8. Assignment operators                    =      +=      -=                equal       plusEqual   minusEqual
+1. Unary Operators                         -      !      ++    --          negative    invert      increment
+2. Multiplication, division, modulus       *      /      %                 multiple    division     remainder
+3. Addition, subtraction                   +      -                        add         subtract
+4. Relation operators                      <      >      <=    >=          greater     lesser      lesser-equal     greater-equal
+5. Equality operators                      ==     !=                       equal       not-equal
+6. Logical operators (non-circuit)         &      |                        AND         OR
+7. Short-circuit                           &&     ||                       AND         OR
+8. Assignment operators                    =      +=     -=                equal       plusEqual   minusEqual
 
 
 -----------------------------------------------------------------------------------------------------
@@ -306,6 +327,7 @@ ArrayList Methods
 
             Returns the index of the last instance of obj in the invoking list. 
             If obj is not an element of the list, .1 is returned.
+
 6 	        ListIterator listIterator( )
             Returns an iterator to the start of the invoking list.
 
@@ -332,35 +354,41 @@ ArrayList Methods
 Time Methods
 -----------------------------------------------------------------------------------------------------
 
-1.  LocalDateTime atDate(LocalDate date)        append local data to local time
-                                                2018-12-05T09:32:42
-2.  int compareTo(LocalTime other)              compare 2 times
-                                                return 1 is greater
-                                                return 0 if equal
-                                                return -1 if less
-                                                int value = time1.compareTo(time2);
-3.  String format(DateTimeFormatter formatter)  Define time pattern
-    source: https://howtodoinjava.com/java/date-time/java-date-formatting/
-4. int get(TemporalField field)                 gets the value of the specified field
-                                                form this time as an int
-                                                LocalTime time = LocalTime.parse("12:30:30");
-                                                System.out.println(time.get(ChronoField.CLOCK_HOUR_OF_DAY)); // 12    
-5. Local Time minusHours(long hoursToSubtract)  return copy of this LocalTime
-                                                with the specified number of minutes subtracted
-                                                LocalTime time = LocalTime.parse("12:30:30");
-                                                System.out.println(time.minusMinutes(2)); // 12:28:30
-6.  static LocalTime now()                      obtain the current time from the system clock
-                                                in the default time-zone
-                                                LocalTime time = LocalTime.now();
-7.  static LocalTime of(int hour, in minutes, int second)
-                                                obtains an instance of LocalTime from 
-                                                year, month, day, hour, minute, second and nanosecond.
-                                                LocalTime time = LocalTime.of(6,30,40,50000);
-                                                System.out.println(time); // 06:30:40.000050
-8.  LocalTime plusHours(long hoursToAdd)        return cop of this LocalTime
-                                                plus the specified hours added        
-9. LocalTime plusMinutes(long minutesToAdd)     return cop of this LocalTime
-                                                plus the specified minutes added   
+
+-- java.time.LocalDate
+-   Represents a date   yyyy-MM-dd
+-   years               yyyy
+-   month               MM
+-   day                 dd
+-   LocalDate obj =                 LocalDate.now();            // 2022-02-17
+-   DateFormatter formatObj =       DateFormatter.ofPattern("dd-MM-yyyy");
+-   String formatDateObj =          obj.format(formatObj);      // 17-02-2022
+
+
+-- java.time.LocalTime
+-   Represents a time   HH-mm-ss-ns
+-   hour                HH
+-   minute              mm
+-   second              ss
+-   nanosecond          ns
+-   LocalTime obj =                 LocalTime.now();            // 10:44:59.831399
+-   TimeFormatter formatObj =       TimeFormatter.ofPattern("HH:mm:ss");
+-   String formatTimeObj =          obj.format(formatObj);      // 10:55:36
+
+
+-- java.time.LocalDateTime
+-   date and time       yyyy-MM-dd-HH-mm-ss-ns
+-   years               yyyy
+-   month               MM
+-   day                 dd   
+-   hour                HH
+-   minute              mm
+-   second              ss
+-   nanosecond          ns
+-   LocalDateTime obj =             LocalDateTime.now();        // 2022-02-17T10:44:59.831643 
+-   DateTimeFormatter formatObj =   DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+-   String formatDateTimeObj =      obj.format(formatObj);      // 17-02-2022 10:55:36
+
 
 -----------------------------------------------------------------------------------------------------
 Lambda
@@ -378,49 +406,37 @@ Predicate<String> pred3 = String s -> false;        The only one that doesn’t 
 Predicate pred4 = c -> c.equals("clear");           While it is common for a Predicate to have a generic type, 
                                                     it is not required.
 
-                                                    
--- Predicate
--   The Predicate interface has an abstract method test
--   Gives a Boolean value as a result
--   Abstract Method Name:       test 
--   Argument:                   any type
--   Return:                     boolean type 
--   public interface Predicate  { public boolean test(T  t); }
+-- Function
+-   Syntax:             Function<T,R> name = (input, result) -> Function;
+-   Caller:             name.apply()
+-   Argument            any
+-   Return:             any
 
+-- Supplier
+-   The Supplier function has no input, but can return any type.
+-   Syntax              Supplier<T> name = () -> Function;
+-   Caller:             name.get()
+-   Argument:           none
+-   Return:             any
 
 -- BinaryOperator
--   The BinaryOperator interface has an abstract method
-    apply which takes two argument and return a result of same type. 
-- Abstract Method Name:             apply
-- Argument;                         2 any types
-- return:                           same as argument
-- public interface BinaryOperator   { public T apply(T x, T y); } 
+-   Syntax              BinaryOperator<T,T> name = (t,t) -> function;
+-   Caller:             name.apply(t,t)
+-   Argument:           2 any type
+-   Return:             same as argument 
 
+-- Predicate
+-   Syntax:             Predicate<T> name = (t) -> function;
+-   Caller:             name.test(t)
+-   Argument:           any type
+-   Return:             boolean type 
 
--- Function 
--   The Function interface has an abstract method apply which takes argument of 
-    type T and returns a result of type R. 
--   Abstract Method Name:    apply
--   Argument;                any
--   return:                  any
+-- Consumer
+-   Syntax:             Consumer<T> name = (t) -> Function;
+-   Caller:             .name.accept(t)
+-   Argument:           any
+-   Return:             none
 
-
--- Supplier 
--   The Supplier functional interface has an abstract method "get"
--   Supplier is a functional interface; it takes no arguments and returns a result. 
--   Abstract Method Name:    get
--   Argument;                none
--   return:                  any 
--   public interface Supplier<T> { T get(); }
- 
--- Consumer 
- -  The Consumer functional interface has an abstract method "accept"
--   Consumer is a functional interface; it takes one arguments and returns nothing.
--   Often uses for print a message 
--   Abstract Method Name:    accept
--   Argument;                any
--   return:                  none 
--   public interface Consumer { void accept(T t) }
 
 -----------------------------------------------------------------------------------------------------
 (Un)Checked Exception
@@ -452,32 +468,12 @@ Predicate pred4 = c -> c.equals("clear");           While it is common for a Pre
     -   Null Pointer            Exception
     -   IndexoutofBound         Exception
     -   ArrayIndexOutOfBounds   Exception
-    -   IllegalArgument         Exception
+    -   IllegalArgument         Exception       is thrown in order to indicate that a method has been passed an illegal argument.
     -   Numberformat            Exception
     -   ClassCast               Exception
     -   Object.Throwable.Error...
     -   StackOverflow           Error
     -   OutOfMemory             Error
-
-
------------------------------------------------------------------------------------------------------
-
------------------------------------------------------------------------------------------------------
-
-
------------------------------------------------------------------------------------------------------
-
------------------------------------------------------------------------------------------------------
-
-
------------------------------------------------------------------------------------------------------
-
------------------------------------------------------------------------------------------------------
-
-
------------------------------------------------------------------------------------------------------
-
------------------------------------------------------------------------------------------------------
 
 
 -----------------------------------------------------------------------------------------------------

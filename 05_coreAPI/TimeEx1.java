@@ -1,77 +1,118 @@
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.Period;
-import java.time.*;
-import java.time.format.*;
-import javax.print.event.PrintEvent;
 
 /*
---  java.time.LocalTime
--   Source: https://www.javatpoint.com/java-localtime
--   LocalTime class is an immutable class 
--   It represents time with a default format of hours-minutes-second.
--   minusNanos and plusNanos are the smallest units available 
--    The Java 8 date and time classes are immutable. This means they do not contain setter 
--   Methods:
-1.  LocalDateTime atDate(LocalDate date)        append local data to local time
-                                                2018-12-05T09:32:42
-2.  int compareTo(LocalTime other)              compare 2 times
-                                                return 1 is greater
-                                                return 0 if equal
-                                                return -1 if less
-                                                int value = time1.compareTo(time2);
-3.  String format(DateTimeFormatter formatter)  Define time pattern
-    source: https://howtodoinjava.com/java/date-time/java-date-formatting/
-4. int get(TemporalField field)                 gets the value of the specified field
-                                                form this time as an int
-                                                LocalTime time = LocalTime.parse("12:30:30");
-                                                System.out.println(time.get(ChronoField.CLOCK_HOUR_OF_DAY)); // 12    
-5. Local Time minusHours(long hoursToSubtract)  return copy of this LocalTime
-                                                with the specified number of minutes subtracted
-                                                LocalTime time = LocalTime.parse("12:30:30");
-                                                System.out.println(time.minusMinutes(2)); // 12:28:30
-6.  static LocalTime now()                      obtain the current time from the system clock
-                                                in the default time-zone
-                                                LocalTime time = LocalTime.now();
-7.  static LocalTime of(int hour, in minutes, int second)
-                                                obtains an instance of LocalTime from 
-                                                year, month, day, hour, minute, second and nanosecond.
-                                                LocalTime time = LocalTime.of(6,30,40,50000);
-                                                System.out.println(time); // 06:30:40.000050
-8.  LocalTime plusHours(long hoursToAdd)        return cop of this LocalTime
-                                                plus the specified hours added        
-9. LocalTime plusMinutes(long minutesToAdd)     return cop of this LocalTime
-                                                plus the specified minutes added        
+-- java.time.LocalDate
+-   Represents a date   yyyy-MM-dd
+-   years               yyyy
+-   month               MM
+-   day                 dd
+-   LocalDate obj =                 LocalDate.now();            // 2022-02-17
+-   DateFormatter formatObj =       DateFormatter.ofPattern("dd-MM-yyyy");
+-   String formatDateObj =          obj.format(formatObj);      // 17-02-2022
 
---  java.time.LocalDate
--   Source: https://www.javatpoint.com/java-localdate
--   Java LocalDate class is an immutable class that represents Date 
-    with a default format of yyyy-mm-dd.
 
---  java.time.LocalDateTime
--   Source: https://www.javatpoint.com/java-localdatetime
--   Java LocalDateTime class is an immutable date-time object that represents a date-time,
-    with the default format as yyyy-MM-dd-HH-mm-ss.zzz.
+-- java.time.LocalTime
+-   Represents a time   HH-mm-ss-ns
+-   hour                HH
+-   minute              mm
+-   second              ss
+-   nanosecond          ns
+-   LocalTime obj =                 LocalTime.now();            // 10:44:59.831399
+-   TimeFormatter formatObj =       TimeFormatter.ofPattern("HH:mm:ss");
+-   String formatTimeObj =          obj.format(formatObj);      // 10:55:36
 
---  java.time.Period
--   Source: https://www.javatpoint.com/java-period
--   The  Period class creates immutable objects and is usually used to add/subtract from a 
-    LocalDate or LocalDateTime object. It allows creating date, week, month, or year periods.
 
--- java.time.format
--  Source:  https://docs.oracle.com/javase/8/docs/api/java/time/format/package-summary.html
--   Provides classes to print and parse dates and times. 
--   When creating a formatter object, remember that MM represents month while mm represents minute.
+-- java.time.LocalDateTime
+-   date and time       yyyy-MM-dd-HH-mm-ss-ns
+-   years               yyyy
+-   month               MM
+-   day                 dd   
+-   hour                HH
+-   minute              mm
+-   second              ss
+-   nanosecond          ns
+-   LocalDateTime obj =             LocalDateTime.now();        // 2022-02-17T10:44:59.831643 
+-   DateTimeFormatter formatObj =   DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+-   String formatDateTimeObj =      obj.format(formatObj);      // 17-02-2022 10:55:36
+
 */
 
 public class TimeEx1 {
+
+    /*------------------------------------------------------------------
+                    Date, Time, Date/Time & Formatting
+    -------------------------------------------------------------------*/
+
+    static LocalDate dateNow            = LocalDate.now();
+    static LocalDate dateInput          = LocalDate.of(1990,03,22);
+    static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    static String dateNowFormat         = dateNow.format(dateFormat);
+
+    static LocalTime timeNow            = LocalTime.now();
+    static LocalTime timeInput          = LocalTime.of(23,59,5);
+    static DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
+    static String timeNowFormat         = timeNow.format(timeFormat);   
+
+    static LocalDateTime dateTimeNow    = LocalDateTime.now();
+    static LocalDateTime dateTimeInput  = LocalDateTime.of(1990, 03, 22, 23, 59, 5);
+    static DateTimeFormatter dateTimeFormat= DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    static String dateTimeNowFormat     = dateTimeNow.format(dateTimeFormat);
+    
+
+    /*------------------------------------------------------------------
+                            Add/Subtract/between Period
+    -------------------------------------------------------------------*/
+
+    // add year
+    static Period periodYear             = Period.ofYears(1);
+    static LocalDate dateAddYear         = dateNow.plus(periodYear);
+    static String finalDateAddYear       = dateAddYear.format(dateFormat); 
+
+    // add month
+    static Period periodMonth            = Period.ofMonths(1);
+    static LocalDate dateAddMonth        = dateNow.plus(periodMonth);
+    static String finalDateAddMonth      = dateAddMonth.format(dateFormat); 
+
+    // add week
+    static Period periodWeek            = Period.ofWeeks(1);
+    static LocalDate dateAddWeek        = dateNow.plus(periodWeek);
+    static String finalDateAddWeek      = dateAddWeek.format(dateFormat); 
+
+    // subtract day
+    static Period periodDays            = Period.ofDays(1);
+    static LocalDate dateMinusDay       = dateNow.minus(periodDays);
+    static String finalDateMinusDay     = dateMinusDay.format(dateFormat); 
+
+
+    // between dates
+    static Period betweenDates          = Period.between(dateNow, dateInput);
+    static String betweenDatesDay       = Integer.toString(betweenDates.getDays());
+    static String betweenDatesMonths    = Integer.toString(betweenDates.getMonths());
+    static String betweenDatesYears     = Integer.toString(betweenDates.getYears());
+
+
     public static void main(String[] args) {
-        LocalDate newYears = LocalDate.of(2017, 1, 1);                          // set date
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");   // set format
-        
-        Period period1 = Period.ofWeeks(1).ofDays(3);                           // set period (can't use chaining so only foDays set the value)
-        Period period2 = Period.ofDays(10);
 
-        System.out.print(format.format(newYears.plus(period1)) +"\n");    // 04-01-2017     (adds 03 days)
-        System.out.print(format.format(newYears.plus(period2)));          // 11-01-2017     (adds 10 days)
+        System.out.println(
+            "\nCurrent Date: " +dateNowFormat 
+        +   "\nCurrent Time: " +timeNowFormat
+        +   "\nDate & Time:  " +dateTimeNowFormat);
 
+        System.out.println(
+                "\nCurrent Date + Year:  "   +finalDateAddYear         
+            +   "\nCurrent Date + Month: "   +finalDateAddMonth      
+            +   "\nCurrent Date + Week:  "   +finalDateAddWeek
+            +   "\nCurrent Date - day:   "   +finalDateMinusDay
+        );
+
+        System.out.println(
+                "\nbetween dates in Days   " +betweenDatesDay
+            +   "\nbetween dates in Weeks: " +betweenDatesMonths
+            +   "\nbetween dates in Years: " +betweenDatesYears
+        );
     }
 }
