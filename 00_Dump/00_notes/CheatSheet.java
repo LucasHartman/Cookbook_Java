@@ -24,11 +24,9 @@ Different package non-subclass      No              No              No          
 
 
 -- Package (Default)
--   Default protection is what you get when you DON'T type an access modifier 
-    in the member declaration.
+-   Default protection is what you get when you DON'T type an access modifier in the member declaration.
 -   A default member may be accessed only if the class accessing the member belongs to the same package
--   The default and protected access control types have almost identical behavior, 
-    except for one difference
+-   The default and protected access control types have almost identical behavior, except for one difference
 
 
 --  Access Methods
@@ -43,9 +41,11 @@ this, super
 
 --  super()
 -   The parent default constructor is automatically initiated in the child class
--   Parent constructor with an argument can be invoked in the child class constructor.
+    NOTE: if the parent doesn't have no-arg constructor, the automatically initialized super() won't work, resulting into an error.
+-   Parent constructor with an argument can be invoked in the child class constructor, using super("arg");
 -   It must be used only inside Child’s constructor.
 -   Call to super() must be the first statement.
+    NOTE: you can't have this() and super() ad the same time.
 
 -- super.member
 -   get parent member
@@ -58,6 +58,9 @@ this, super
 -   To connect constructors in a single class.
 -   Used to initialize an object via multiple constructors.
 
+-- this.member
+-   The this keyword refers to the current object in a method or constructor.
+-   this keyword is to eliminate the confusion between class attribute and parameters with the same name.
 
 -- this
 -   this(10 ,20);       Invoke constructor inside a constructor.
@@ -83,7 +86,7 @@ Overload, Override
 -   Reuse name
 -   MUST have same argument
 -   MUST have same return type (or sub-type)
--   MAY narrow access modifier, but not widen
+-   overridden method (i.e. declared in subclass) must not be more restrictive.
 -   IF super-class method does not throw an exception,
     subclass overriding method can only throws the unchecked exception,
     throwing checked exception will lead to compile-time error.
@@ -91,11 +94,45 @@ Overload, Override
     subclass overriding method can only throw same or subclass exception
 -   ALSO there is no issue if subclass overridden method is not throwing any exception.
 
+-   Override Method can only do a New , Same, Or Narrow Unchecked Exception
+
 -   default methods inside the interface can be overridden
 -   static  methods can't be overridden
 -   Private method can't be overridden
 -   Final   methods can't be overridden
 -   instance variables can't be overridden, they are there own value
+
+
+// Override ---------------------------------------------------------------------------------------------------------------------------
+
+- Method without an Exception               CAN     be overridden with a      NEW     UnChecked Exception (IndexOutOfBoundException)
+- Method without an Exception               CAN'T   be overridden with a      NEW     Checked Exception   (ClassNotFoundException) !!!
+
+- Method with an Checked Exception          CAN     be overridden with the    SAME    Checked Exception   (ClassNotFoundException)
+- Method with an Checked Exception          CAN     be overridden with a      NARROW  Checked Exception   (ClassNotFoundException)
+- Method with an Checked Exception          CAN'T   be overridden with a      WIDER   Checked Exception   (ClassNotFoundException)
+- Method with an CHECKED Exception          CAN'T   be overridden with the    NEW     UNCHECKED Exception   (IndexOutOfBoundException) !!!
+
+- Method with an UnChecked Exception        CAN     be overridden with the    SAME    Unchecked Exception (IndexOutOfBoundException)
+- Method with an UnChecked Exception        CAN     be overridden with a      NARROW  Unchecked Exception (IndexOutOfBoundException)
+- Method with an UnChecked Exception        CAN'T   be overridden with a      WIDER   Unchecked Exception (IndexOutOfBoundException)
+- Method with an UNCHECK Exception          CAN'T   be overridden with the    NEW     CHECKED Exception     (ClassNotFoundException) !!!
+
+// OverLoad ---------------------------------------------------------------------------------------------------------------------------
+
+- Method without an Exception               CAN     be Overloaded with a      NEW     UnChecked Exception   (IndexOutOfBoundException)
+- Method without an Exception               CAN     be Overloaded with a      NEW     Checked Exception     (ClassNotFoundException)
+
+- Method with an Unchecked Exception        CAN     be Overloaded with the    SAME    unchecked Exception   (IndexOutOfBoundException)
+- Method with an Unchecked Exception        CAN     be Overloaded with the    WIDER   unchecked Exception   (IndexOutOfBoundException)
+- Method with an Unchecked Exception        CAN     be Overloaded with the    NARROW  unchecked Exception   (IndexOutOfBoundException)
+- Method with an UNCHECK Exception          CAN     be Overloaded with the    NEW     CHECKED Exception     (ClassNotFoundException) !!!
+
+- Method with an checked Exception          CAN     be Overloaded with the    SAME    checked Exception     (ClassNotFoundException)
+- Method with an checked Exception          CAN     be Overloaded with the    WIDER   checked Exception     (ClassNotFoundException)
+- Method with an checked Exception          CAN     be Overloaded with the    NARROW  checked Exception     (ClassNotFoundException)
+- Method with an CHECKED Exception          CAN     be Overloaded with the    NEW     UNCHECKED Exception   (IndexOutOfBoundException) !!!
+
 
 
 -----------------------------------------------------------------------------------------------------
@@ -146,6 +183,8 @@ Implicit, Explicit
     -   Converting lower -> higher data types
     -   Automatically
     -   The conversion between numeric data type to char or Boolean is not done automatically.
+    -   The compiler will broaden the data type on a numeric value until it finds a compatible signature. 
+
 
          byte -> short -> int -> long -> float -> double
 
@@ -160,6 +199,9 @@ Implicit, Explicit
          long l = 5;
          int i  = (int) l;
 
+    -   Casting an object to a reference variable does not modify the object in memory.
+    -   An object can be assigned to a superclass reference variable without an explicit cast.
+
 
 -----------------------------------------------------------------------------------------------------
 equals(), ==, instanceof()
@@ -169,6 +211,12 @@ equals(), ==, instanceof()
 -   ==              operator compares       object        (Object == Object)
 -   Reference comparison
 -   Checks if both references points to same location or not.
+
+        System.out.println(new StringBuilder("zelda") == new StringBuilder("zelda")); // false
+        System.out.println(3 == 3);                             // true
+        System.out.println("bart" == "bart");                   // true    
+        System.out.println(new int[0] == new int[0]);           // false  no objects just values
+        System.out.println(LocalTime.now() == LocalTime.now()); // false  no objects just values
 
 
 --  equals()
@@ -182,6 +230,22 @@ equals(), ==, instanceof()
 -    The instanceof operator is used for object reference variables only
 -   Same type or same Parent type
 -   implements and extends the parent class
+
+
+
+String lol = "lol";
+// String should be compared with a method rather than ==, 
+// especially when not comparing two values from the string pool.
+4:  System.out.println(lol.toUpperCase() == lol);                       // false    "LOL" has no object to compare to
+5:  System.out.println(lol.toUpperCase() == lol.toUpperCase());         // false    "LOL" and "LOL" has no object
+
+6:  System.out.println(lol.toUpperCase().equals(lol));                  // false    not the same value
+7:  System.out.println(lol.toUpperCase().equals(lol.toUpperCase()));    // true     same value
+8:  System.out.println(lol.toUpperCase().equalsIgnoreCase(lol));        // true     same value (when ignored)
+9: System.out.println(lol.toUpperCase()                                    
+10: .equalsIgnoreCase(lol.toUpperCase()));                               // true    same value
+
+
 
 
 -----------------------------------------------------------------------------------------------------
@@ -214,7 +278,7 @@ ________________________________________________________________________________
 3. Addition, subtraction                   +      -                        add         subtract
 4. Relation operators                      <      >      <=    >=          greater     lesser      lesser-equal     greater-equal
 5. Equality operators                      ==     !=                       equal       not-equal
-6. Logical operators (non-circuit)         &      |                        AND         OR
+6. Logical operators (non-circuit)         &      |    ^                   AND         OR
 7. Short-circuit                           &&     ||                       AND         OR
 8. Assignment operators                    =      +=     -=                equal       plusEqual   minusEqual
 
@@ -328,7 +392,7 @@ ArrayList Methods
             Returns the index of the last instance of obj in the invoking list. 
             If obj is not an element of the list, .1 is returned.
 
-6 	        ListIterator listIterator( )
+6 	        ListIterator  ( )
             Returns an iterator to the start of the invoking list.
 
 7 	        ListIterator listIterator(int index)
@@ -433,7 +497,7 @@ Predicate pred4 = c -> c.equals("clear");           While it is common for a Pre
 
 -- Consumer
 -   Syntax:             Consumer<T> name = (t) -> Function;
--   Caller:             .name.accept(t)
+-   Caller:             name.accept(t)
 -   Argument:           any
 -   Return:             none
 
@@ -441,6 +505,25 @@ Predicate pred4 = c -> c.equals("clear");           While it is common for a Pre
 -----------------------------------------------------------------------------------------------------
 (Un)Checked Exception
 -----------------------------------------------------------------------------------------------------
+
+
+                        Object
+                        |
+                        |
+    ------------------ Throwable --------------------
+    |                                               |
+    |                                               |
+    --  Exceptions                                  -- Error
+    |
+    |
+    --  Checked Exceptions 
+        (IO or Compile-Time)
+    |
+    |
+    --  Unchecked Exceptions 
+        (Runtime or NullPointer)
+
+
 
 -- Checked Exceptions
 -   Checked exceptions are checked at compile-time.
@@ -475,13 +558,363 @@ Predicate pred4 = c -> c.equals("clear");           While it is common for a Pre
     -   StackOverflow           Error
     -   OutOfMemory             Error
 
+-- Error
+-   An Error generally indicates an unrecoverable problem.
+-   While it is possible to catch an Error, it is strongly recommended that an application never do so,
+-   Error extends from Throwable, not Exception, and is unchecked.
+
+-- try/catch
+-   A try statement requires a catch or a finally block
+-   It can also have an catch an finally block
+-   If an exception is found in the try block, the code inside the try block is not executed.
+-   A variable defined  in a try block is a local variable and is not in scope of the catch,finally and outside the try/catch/finally
+-   catch order goes from narrow to wider exception
+
+-- finally
+-   finally block can throw an exception
+-   not every line in a finally block could be executed 
+-   finally statement required brackets {}
+
+-- throws
+-   Is used in the method declarations
+-   throws a broad exception like RuntimeException, 
+    can't be caught with a narrowed exception, 
+    like ArrayIndexOutOfBoundsException
+-   If a throws
 
 -----------------------------------------------------------------------------------------------------
+indexOf() method
+-----------------------------------------------------------------------------------------------------
 
+        String myString = "Hello";
+        
+        // find first occurrence of the specified character
+        System.out.println(myString.indexOf('H')); // 0
+        System.out.println(myString.indexOf('o')); // 4
+
+        // if the character does not occur
+        System.out.println(myString.indexOf('a')); // -1
+        System.out.println(myString.indexOf('k')); // -1
+
+        // start searching from selected index position
+        System.out.println(myString.indexOf('l', 1)); // 2
+        System.out.println(myString.indexOf('l', 3)); // 3
+
+-----------------------------------------------------------------------------------------------------
+JavaBeans
+-----------------------------------------------------------------------------------------------------
+
+-- JavaBean
+-   Source: https://www.tutorialspoint.com/javabean-class-in-java
+-   JavaBean is a specially constructed Java class, coded according to the JavaBeans API specification
+-   1. It provides a default, no-argument constructor.
+-   2. It should be serializable and that which can implement the Serializable interface
+-   3. It may have a number of "getter" and "setter" methods for the properties (class variables).
+
+-- java.io.Serializable (Interface)
+-   Source:   https://www.geeksforgeeks.org/serializable-interface-in-java/
+-   Does not have any methods and fields.
+-   Class implement it if they want their instances to be Serialized or Deserialized.
+-   Serialization is a mechanism of converting the state of an object into a byte steam.
+-   Serialization is done using ObjectOutputStream
+-   This mechanism is used to persist the object. 
+
+-- byte steam
+-   https://www.tutorialspoint.com/byte-streams-in-java
+-   byte steam read/write data of 8 bits.
+-   These can store characters, videos, audios, images. etc.
+
+-- Java.io.ObjectOutputSteam Class
+-   Source:   https://www.geeksforgeeks.org/java-io-objectoutputstream-class-java-set-1/
+-   writes primitive data types and graphs of Java objects to an OutpustSTeam.
+-   The objects can be read (reconstituted) using an ObjectInputSteam.
+
+-- Valid/unValid signatures
+A. public byte getNose(String nose)         // incorrect,   getter shout not take a value
+B. public void setHead(int head)            // correct
+C. public String getShoulders()             // correct
+D. public long isMouth()                    // incorrect,   prefix "is" should only be with boolean values
+E. public void gimmeEars()                  // incorrect,   just a method
+F. public boolean isToes()                  // correct
+
+-----------------------------------------------------------------------------------------------------
+Import
+-----------------------------------------------------------------------------------------------------
+Given a class that uses the following import statements, 
+which class would be automatically accessible without using its full package name? 
+
+import forest.Bird;     // only forest.Bird available 
+import jungle.tree.*;
+import savana.*;
+
+A. forest.Bird              //  correct  
+B. savana.sand.Wave         //  incorrect   access to classes within the savana package
+C. jungle.tree.Huicungo     //  correct
+D. java.lang.Object         //  correct     implicitly included in all Java classes.
+E. forest.Sloth             //  incorrect
+F. forest.ape.bonobo        //  incorrect
+
+-----------------------------------------------------------------------------------------------------
+immutable objects
+-----------------------------------------------------------------------------------------------------
+
+-- Mutable
+-   object can change state
+-   ArrayList
+-   StringBuilder
+
+-- Immutable 
+-   Can NOT change state
+-   String
+-   LocalDateTime
+
+-----------------------------------------------------------------------------------------------------
+Arrays
+-----------------------------------------------------------------------------------------------------
+
+-- Arrays
+-   Source: https://www.geeksforgeeks.org/arrays-in-java/
+-   Array is a group of like-typed variables
+-   dynamically allocated:  
+-   array is an object
+-   array variable are declared with []
+-   array have index beginning from 0
+-   array can be a static field, local variable, or method parameter
+-   Size must be specified by int or short value and not long
+-   Superclass of an array type is Object
+-   Array can contain primitives and object
+
+-- Declare
+-   int intArray[];
+-   int[] intArray;
+
+-- Instantiating
+-   If an array is not initialized, it will throw a NullPointException
+-   intArray = new int[20];
+-   int[][][] intArray = new int[10][5][2];
+
+-- Array Literal
+-   In a situation where the size of the array and variables 
+    of the array are already known, array literals can be used. 
+-   int[] intArray = new int[] {1,2,3,4,5};
+
+
+-----------------------------------------------------------------------------------------------------
+Generics
+-----------------------------------------------------------------------------------------------------
+
+-- Generics
+-   Source: https://www.geeksforgeeks.org/generics-in-java/
+-   Generics means parameterized types.
+-   The idea is to allow type (Integer, String, … etc., 
+    and user-defined types) to be a parameter to methods, classes, 
+    and interfaces. 
+-   Generics add that type of safety feature.
+-   classes like HashSet, ArrayList, HashMap, etc., use generics very well. 
+
+-- Generic Method
+-   Generic Method takes a parameter and returns some value after performing a task
+-   generic method has type parameters that are cited by actual type.
+
+-- Generic Class (parameterized classes)
+-   Generic class is implemented exactly like a non-generic class
+    The only difference is that it contains a type parameter section.
+-   There can be more than one type of parameter.
+
+        class Test<T> {
+            // An object of type T is declared
+            T obj;
+            Test(T obj) { this.obj = obj; } // constructor
+            public T getObject() { return this.obj; }
+        }
+
+-- diamond operator
+        List<String> c = new ArrayList<>();
+        List<String> e = new ArrayList<String>();
+-   The diamond operator is only allowed to be used when instantiating rather than
+    declaring. In other words, it can’t go on the left side of the equal sign.
+-   generics are not used on the right side of the assignment operator.
+
+-----------------------------------------------------------------------------------------------------
+Garbage collection (GC)
+-----------------------------------------------------------------------------------------------------
+
+-- Garbage collection (GC)
+-   Source: https://www.geeksforgeeks.org/garbage-collection-java/
+-   Automatic memory management.
+-   Object of created on the heap, a potion of memory dedicated to the program.
+-   Eventually, some object wound be needed.
+-   The garbage collector, destroying unreachable objects.
+
+-- in-use object
+-   An in-use object, or a referenced object,
+    means that some part of your program still maintains a 
+    pointer to that object.
+
+-- Make an object eligible for Garbage Collector
+1.  Nullifying the reference variable
+2.  Re-assigning the reference variable
+3.  An object created inside the method
+4.  Island of Isolation
+
+-- Ways for requesting JVM to run Garbage Collector
+-   Once we make an object eligible for garbage collection, 
+    it may not destroy immediately by the garbage collector. 
+    Whenever JVM runs the Garbage Collector program, then only the object will be destroyed. 
+    But when JVM runs Garbage Collector, we can not expect.
+    We can also request JVM to run Garbage Collector. 
+    There are two ways to do it : 
+-   Using System.gc() method: System class contain static method gc() for requesting JVM to run Garbage Collector.
+-   Using Runtime.getRuntime().gc() method: 
+    Runtime class allows the application to interface with the JVM in which the application is running. 
+    Hence by using its gc() method, we can request JVM to run Garbage Collector.
+-   There is no guarantee that any of the above two methods will run Garbage Collector.
+-   The call System.gc() is effectively equivalent to the call : Runtime.getRuntime().gc()
+
+-----------------------------------------------------------------------------------------------------
+ Covariant return type
+-----------------------------------------------------------------------------------------------------
+
+-- covariant return type
+-   it was not possible to override any method by changing the return type.
+-   But it is possible to override method by changing the return type, 
+    if the type is Non-Primitive.
+-   example:
+
+    class A {
+        A get(){return this;}
+    }
+
+    class B extends A {
+        @Override
+        B get(){return this;} // B is a different return type (covariant return type)
+    }
+
+
+-----------------------------------------------------------------------------------------------------
+Interface
+-----------------------------------------------------------------------------------------------------
+
+-- Interface
+-   A class cannot inherit two interfaces that declare the same default method,
+    unless the class overrides them.
+-   An object can be assigned to an inherited interface reference variable without an explicit cast.
+
+-----------------------------------------------------------------------------------------------------
+Variable
+-----------------------------------------------------------------------------------------------------
+
+-- Variable
+-   Names can contain letters, digits, underscores, and $ signs                         _letters123$$$
+-   Names must begin with a letter                                                      letter
+-   Names should start with a lowercase letter and it cannot contain whitespace         letter_whitespace
+-   Names can also begin with $ and _                                                   $legal
+-   Names are case sensitive ("myVar" and "myvar" are different variables)
+-   Reserved words (like Java keywords, such as int or boolean) cannot be used as names
+
+-- Local Variable
+-   local variables are not automatically initialized
+-   Local variable has no effect, on a same name static instance variable. 
+
+-- Instance Variable
+-   Are automatically initialized
+
+-----------------------------------------------------------------------------------------------------
+Constructor
+-----------------------------------------------------------------------------------------------------
+
+-- Constructor
+-   If there is no call to a parent constructor or constructor in the same class, 
+    the compiler inserts a no-argument super() call as the first line of the constructor.
+    If the parent does not have a no-argument constructor, the no-argument constructor child constructer does not compile. 
+-   super() and this() cannot be called in the same constructor. 
+-   
+
+-----------------------------------------------------------------------------------------------------
+Inheritance
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Inheritance
+-   Inheritance allows objects to inherit commonly used attributes and methods.
+-   Inheritance allows a method to be overridden in a subclass, possibly changing the
+    expected behavior of other methods in a superclass
+
+-----------------------------------------------------------------------------------------------------
+Switch
+-----------------------------------------------------------------------------------------------------
+
+-- Switch
+-   A switch statement supports the primitive types byte, short, char, and int 
+-   and their associated wrapper classes Character, Byte, Short, and Integer. 
+-   It also supports the String class and enumerated types. 
+-   Floating-point types like float and double are not supported, nor is the Object class.
+
+-   the value of a case statement must be a literal (primitive types) expression 
+-   or a final constant variable, 
+-   and have a compatible data type
+
+-----------------------------------------------------------------------------------------------------
+underscore in a numeric literal
+-----------------------------------------------------------------------------------------------------
+
+underscore in a numeric literal, it must be between two digits  1_2_3
+not on the beginning or end                                     _123_
+
+
+
+-----------------------------------------------------------------------------------------------------
+parseInt()
+-----------------------------------------------------------------------------------------------------
+
+-- ParseInt() Method
+-   returns an int primitive                            int three = Integer.parseInt("3")
+-   Thanks to autoboxing, we can also assign it to      Integer four = Integer.parseInt("4");
+    an Integer wrapper class object reference. 
+-   The char and short types are smaller than int       short five = Integer.parseInt("5");
+    so they cannot store the result. 
+
+-----------------------------------------------------------------------------------------------------
+binarySearch
+-----------------------------------------------------------------------------------------------------
+
+-- binarySearch
+-   input list and search key, returns the index position
+-   elements have to be sorted in ascending order.
+-   it can be sorted using the method Arrays.sort(arr).
+-   Compared to linear search, binary search is considered to be faster. 
+-   if an element is searched and not found, the index’s negative value 
+    will be returned if that element was present.
+
+
+-----------------------------------------------------------------------------------------------------
+Loops
+-----------------------------------------------------------------------------------------------------
+
+-   Every for-each loop can be rewritten as a do-while loop
+-   Every fo-each loop can be rewritten as a traditional for loop
+-   Every for-each loop can be rewritten as a while loop
+
+-----------------------------------------------------------------------------------------------------
+Spelling
+-----------------------------------------------------------------------------------------------------
+
+-   == not =    within the condition brackets of a while loop or if-statement (code does not compile)
+-   -> not =>   Check lambda syntax
+-   no {}       If a loop has no braces, only the first line is looped
+-   no static   main() missing static keyword
+-   mul-catch   Narrowest exception come first
+-   try/cath    Variable name can only be used one's, 
+-   String      not string
+-----------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
 */
 
 public class CheatSheet {
+
+    public static void main(String[] args) {
+        
+    }
     
 }

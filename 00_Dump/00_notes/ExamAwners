@@ -1,0 +1,98 @@
+These practice exam questions tend to be harder
+because they are designed to test your cumulative knowledge rather than reinforcing your
+existing skill set.
+
+right   :   08, 09, 12, 13, 15, 22, 23, 28, 31, 35,
+            36, 39, 40, 41, 43, 44, 46, 48, 52, 55,
+            59, 60, 61, 65, 67, 68, 69, 70, 74, 76,
+            77, 80
+
+
+
+wrong   :   01, 02, 03, 04, 05, 06, 07, 10, 11, 16, 
+            17, 18, 19, 20, 21, 24, 25, 26, 29, 30, 
+            32, 33, 34, 37, 38, 42, 45, 47, 49, 50,
+            51, 53, 54, 56, 58, 62, 63, 64, 66, 71,
+            72, 73, 75, 78, 79
+
+
+1.  B   (whats indexOf?)
+2.  B,E
+3.  B,C,D
+4.  B,F
+5.  A,E
+6.  B,C,D,
+7.  F (ArrayList has no diamante operator)
+8.  C
+9.  D
+10. D   (?)
+11. A,C,D
+12. B,C
+13. A
+14. C   (2d array is declared but not initialized)
+15. C,E (what generics)
+16. C,F
+17. B   (trhows runtimeException("clown!"))
+18. E   (?)
+19. B
+20. B
+21. F (teeth not initiated)
+22. A
+23. A,C,F
+24. A  (or not?)
+25. A, B
+26. A   (parent Plant)
+27. B
+28. A
+29. A,B,E   (long can be auto-cast to int??)
+30. ,D,F    (and B??)
+31. B,E
+32. B
+33. C,D     (?)
+34. B,D
+35. E
+36. C
+37. A,D,E   (no wrapper classes?)
+38. C       ( cant use instance method in a static method)
+39. C, E    ( or B, why not?)
+40. A, F,   (static key comes after import)
+41. D       (IndexOutOfBoundException)
+42. C,D     (C not sure)
+43. B       ( ???? )
+44. D
+45. B       (confused)
+46. C,D
+47. A       ( I don't get parseInt() )
+48. B, C, D (cast wide (impliced) is automatic)
+49. D       (same objects)
+50. C       (multi catch cant go from narrow to wide, i think)
+51. D       (Container keeps on increasing)
+52. A,E,F
+53. D,??    (type of question I would Ignore, to much time, I don't know)
+54. A,E,F   (h6, what even is that)
+55. B,E,F
+56. E       (not sure if the syntax is right)
+57. D       (can be used in and outside the package by inherit)
+58. ?       (losing focus)
+59. C       (String h & method chaining)
+60. A,E
+61. B           (4+9)
+62. A?,??       (what are these words)
+63. focus       (what is binarySearch)
+64. C           (flip flop and sandal)
+65. E
+66. C E          3 loop, in loop 3 j is out of bound
+67. E
+68. E           IndexOutOfBoundException
+69. D           Abstract Class can't implement Interface,  play(int count) overload an abstact method, can't use super.play5 in a method
+70. B
+71. ?           Im not even goig to try
+72. E
+73. B
+74. A           Again whats binarySearch
+75. A           I don't agree with any
+76. E           get hour fo an data, What?
+77. C           what?
+78. D           count the month backwards
+79. c           11 & 12
+80. B,E
