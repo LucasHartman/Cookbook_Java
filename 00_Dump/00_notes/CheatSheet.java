@@ -105,33 +105,40 @@ Overload, Override
 
 // Override ---------------------------------------------------------------------------------------------------------------------------
 
-- Method without an Exception               CAN     be overridden with a      NEW     UnChecked Exception (IndexOutOfBoundException)
-- Method without an Exception               CAN'T   be overridden with a      NEW     Checked Exception   (ClassNotFoundException) !!!
+- Method without an Exception           CAN     be overridden with a      NEW     UnChecked Exception   (IndexOutOfBoundException)
+- Method without an Exception           CAN'T   be overridden with a      NEW     Checked Exception     (ClassNotFoundException) !!!
 
-- Method with an Checked Exception          CAN     be overridden with the    SAME    Checked Exception   (ClassNotFoundException)
-- Method with an Checked Exception          CAN     be overridden with a      NARROW  Checked Exception   (ClassNotFoundException)
-- Method with an Checked Exception          CAN'T   be overridden with a      WIDER   Checked Exception   (ClassNotFoundException)
-- Method with an CHECKED Exception          CAN'T   be overridden with the    NEW     UNCHECKED Exception   (IndexOutOfBoundException) !!!
+- Method with an Checked Exception      CAN     be overridden             WITHOUT Checked Exception     (ClassNotFoundException)
+- Method with an Checked Exception      CAN     be overridden with the    SAME    Checked Exception     (ClassNotFoundException)
+- Method with an Checked Exception      CAN     be overridden with a      NARROW  Checked Exception     (ClassNotFoundException)
+- Method with an Checked Exception      CAN'T   be overridden with a      BROADER Checked Exception     (ClassNotFoundException)
+- Method with an CHECK Exception        CAN'T   be overridden with the    NEW     CHECKED Exception     (ClassNotFoundException) !!!
+- Method with an CHECKED Exception      CAN'T   be overridden with the    NEW     UNCHECKED Exception   (IndexOutOfBoundException) !!!
 
-- Method with an UnChecked Exception        CAN     be overridden with the    SAME    Unchecked Exception (IndexOutOfBoundException)
-- Method with an UnChecked Exception        CAN     be overridden with a      NARROW  Unchecked Exception (IndexOutOfBoundException)
-- Method with an UnChecked Exception        CAN'T   be overridden with a      WIDER   Unchecked Exception (IndexOutOfBoundException)
-- Method with an UNCHECK Exception          CAN'T   be overridden with the    NEW     CHECKED Exception     (ClassNotFoundException) !!!
+- Method with an UnChecked Exception    CAN     be overridden             WITHOUT Unchecked Exception   (IndexOutOfBoundException)
+- Method with an UnChecked Exception    CAN     be overridden with the    SAME    Unchecked Exception   (IndexOutOfBoundException)
+- Method with an UnChecked Exception    CAN     be overridden with a      NARROW  Unchecked Exception   (IndexOutOfBoundException)
+- Method with an UnChecked Exception    CAN'T   be overridden with a      BROADER Unchecked Exception   (IndexOutOfBoundException)
+- Method with an UNCHECKED Exception    CAN'T   be overridden with the    NEW     UNCHECKED Exception   (IndexOutOfBoundException) !!!
+- Method with an UNCHECK Exception      CAN'T   be overridden with the    NEW     CHECKED Exception     (ClassNotFoundException) !!!
+
+
 
 // OverLoad ---------------------------------------------------------------------------------------------------------------------------
 
-- Method without an Exception               CAN     be Overloaded with a      NEW     UnChecked Exception   (IndexOutOfBoundException)
-- Method without an Exception               CAN     be Overloaded with a      NEW     Checked Exception     (ClassNotFoundException)
+- Method without an Exception               CAN     be overloaded with a      NEW     UnChecked Exception   (IndexOutOfBoundException)
+- Method without an Exception               CAN     be overloaded with a      NEW     Checked Exception     (ClassNotFoundException)
 
-- Method with an Unchecked Exception        CAN     be Overloaded with the    SAME    unchecked Exception   (IndexOutOfBoundException)
-- Method with an Unchecked Exception        CAN     be Overloaded with the    WIDER   unchecked Exception   (IndexOutOfBoundException)
-- Method with an Unchecked Exception        CAN     be Overloaded with the    NARROW  unchecked Exception   (IndexOutOfBoundException)
-- Method with an UNCHECK Exception          CAN     be Overloaded with the    NEW     CHECKED Exception     (ClassNotFoundException) !!!
+- Method with an Checked Exception          CAN     be overloaded             WITHOUT Checked Exception     (ClassNotFoundException)
+- Method with an Unchecked Exception        CAN     be overloaded with the    SAME    unchecked Exception   (IndexOutOfBoundException)
+- Method with an Unchecked Exception        CAN     be overloaded with the    BROADER unchecked Exception   (IndexOutOfBoundException)
+- Method with an Unchecked Exception        CAN     be overloaded with the    NARROW  unchecked Exception   (IndexOutOfBoundException)
+- Method with an UNCHECK Exception          CAN     be overloaded with the    NEW     CHECKED Exception     (ClassNotFoundException) !!!
 
-- Method with an checked Exception          CAN     be Overloaded with the    SAME    checked Exception     (ClassNotFoundException)
-- Method with an checked Exception          CAN     be Overloaded with the    WIDER   checked Exception     (ClassNotFoundException)
-- Method with an checked Exception          CAN     be Overloaded with the    NARROW  checked Exception     (ClassNotFoundException)
-- Method with an CHECKED Exception          CAN     be Overloaded with the    NEW     UNCHECKED Exception   (IndexOutOfBoundException) !!!
+- Method with an UnChecked Exception        CAN     be overloaded             WITHOUT Unchecked Exception   (IndexOutOfBoundException)
+- Method with an checked Exception          CAN     be overloaded with the    BROADER checked Exception     (ClassNotFoundException)
+- Method with an checked Exception          CAN     be overloaded with the    NARROW  checked Exception     (ClassNotFoundException)
+- Method with an CHECKED Exception          CAN     be overloaded with the    NEW     UNCHECKED Exception   (IndexOutOfBoundException) !!!
 
 
 
@@ -513,7 +520,7 @@ Predicate pred4 = c -> c.equals("clear");           While it is common for a Pre
     ------------------ Throwable --------------------
     |                                               |
     |                                               |
-    --  Exceptions                                  -- Error
+    --  Exceptions (Checked)                        -- Error
     |
     |
     --  Checked Exceptions 
@@ -530,13 +537,16 @@ Predicate pred4 = c -> c.equals("clear");           While it is common for a Pre
 -   it should handle the exception using try-catch block or 
     it should declare the exception using throws keyword.
 -   otherwise the program will not compile
+-   If method declaration includes the Exception class, which is a checked exception. 
+    But an unchecked exception is thrown, even so
+    the checked exception must be handled or declared in the main() method in which it is called.
 
     -   Object.Throwable.Exception.Checked Exception...
     -   IO              Exception
     -   ClassnotFound   Exception
     -   Socket          Exception
     -   SQL             Exception
-
+    -   Exception
 
 -- Unchecked Exceptions
 -   An unchecked exception is the one which occurs at the time of execution.
@@ -574,6 +584,9 @@ Predicate pred4 = c -> c.equals("clear");           While it is common for a Pre
 -   finally block can throw an exception
 -   not every line in a finally block could be executed 
 -   finally statement required brackets {}
+-   If the catch throws an Unchecked Exception (throws new NUllPointerException)
+    and the finally too (throw new RuntimeException(); ).
+    Than the caller sees the RuntimeException in the stack trace.
 
 -- throws
 -   Is used in the method declarations
