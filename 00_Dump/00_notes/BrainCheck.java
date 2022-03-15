@@ -287,6 +287,120 @@ Lambda
 
 -   Object.throwable.Exception.RuntimeException.
 -   NullPointerException
+-   IndexOutOfBoundsException
+-   ArrayIndexOutOfBounds
+-   IllegalArgument
+-   Numberformat
+-   ClassCast
+
+-   Object.Throable.Error.
+-   StackOverflow
+-   OutOfMemory
+
+
+-- Error
+-   An Error generally indicates an unrecoverable problem.
+-   While it is possible to catch an Error,
+    it is strongly recommended that an application never do so,
+-   Error extends from Throwable, not Exception, and is unchecked.
+
+
+-- try/catch
+-   A try statement requires a catch and/or a finally block
+-   A variable defined in a try block is a local variable and is not is scope of the catch,finally 
+    and outside the try/catch/finally 
+-   Catch block order goes from narrow to broader exceptions
+
+-- throws
+-   Declare an exception (mostly checked) in the method signature
+-   Broader Exception can caught an narrower exception, but not vise versa
+
+----------------------
+JavaBeans
+----------------------
+
+-- JavaBeans
+-   JavaBeans is a special constructed Java Class,
+    coded according to the JavaBeans API specification:
+    1.  It provides a default, no-argument constructor.
+    2.  It should be serializable and that which can implement the Serializable interface.
+    3.  It may have a number of "getter" ad "setter" method for the properties (class variables).
+
+-- java.io.Serializalbe (interface)
+-   Does not have methods and fields
+-   Class implements them is they want there instance to be Serialized or Deserialized
+-   Serialization is a machanism of converting the state of an object into a byte stream.
+-   Serialization is done using ObjectOutputStream
+-   This mechanism is used to persist the object.
+
+-- byte steam
+-   Byte steam read/write data of 8 bits
+-   These can store characters, videos, audio, images, etc.
+
+--  Java.io.ObjectOutputStream Class
+-   Writes primitive data types an graphs of Java object to an OutputStream
+-   The objects can be read (reconstituted) using an ObjectInputStream
+
+-- Valid/unValid signatures
+-   public byte getNose(String nose)        // getter don't have inputs
+-   void setHead(int head)                  // correct setter
+-   public String getShoulder();            // correct getter
+-   public long isMouth()                   // is should only be with boolean values
+-   public boolean isToes()                 // correct
+
+----------------------
+(im)mutable Objects
+----------------------
+
+-- mutable
+--  Value can be dynamicly changed
+-   Primitives
+-   Arrays/ArrayLists
+-   StringBuilder
+
+-- unmutable
+-   String
+-   LocalTime, LocalData, LocalDateTime
+
+
+-----------------------
+Generics
+-----------------------
+
+-- Generics
+-   Generics means parameterized types.
+-   The idea is to allow types like: 
+    Integer, String, and user-defined to be parameters to:
+    methods, classes, and interfaces.
+-   Generics add a type of safety features
+-   Classes like HashSet, ArrayLIst, HashMap, etc, use generics
+
+-- Generic Method
+-   Generic Method takes a parameter and returns some value after performing a tak
+-   Generic method has type parameters that are cited by actual type.
+
+-- Generic Class (parameterized classes)
+-   Generic class is implemented exactly like a non-generic class
+    the only difference is that it contains a type parameter section.
+-   There can be more than one type of parameter
+
+    class Test<T> {
+        // An object of type T is declared
+        T obj;
+        Test(T obj) {this.obj = obj} 
+        public T getObject() { return this.obj; }
+    }
+
+-- diamond operator
+    List<String> obj = new ArrayList<>();
+-   The diamond operator is only allowed to be used when instantiating rather than
+    declaring. In other words, it can't go onl the left side of the = sign.
+-   Generics are not used on the right side of the assignment operator.
+
+
+
+
+
 
 
 */
