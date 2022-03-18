@@ -1,4 +1,18 @@
 /*
+
+428
+433
+437
+443
+448
+452
+459
+465
+472
+
+
+
+
 ----------------------------------------------------------------------------------------------------- 
 Access Modifiers
 ----------------------------------------------------------------------------------------------------- 
@@ -45,7 +59,7 @@ this, super
 -   Parent constructor with an argument can be invoked in the child class constructor, using super("arg");
 -   It must be used only inside Child’s constructor.
 -   Call to super() must be the first statement.
-    NOTE: you can't have this() and super() ad the same time.
+    NOTE: you can't have this() and super() add the same time.
 
 -- super.member
 -   MyInterface.super.doStuff()         get parent member
@@ -105,23 +119,27 @@ Overload, Override
 
 // Override ---------------------------------------------------------------------------------------------------------------------------
 
-- Method without an Exception           CAN     be overridden with a      NEW     UnChecked Exception   (IndexOutOfBoundException)
-- Method without an Exception           CAN'T   be overridden with a      NEW     Checked Exception     (ClassNotFoundException) !!!
+-   If the superclass method does NOT declare an exception, 
+    subclass overridden method CANNOT declare the CHECKED exception but it CAN declare UNCHECKED exception.
 
-- Method with an Checked Exception      CAN     be overridden             WITHOUT Checked Exception     (ClassNotFoundException)
-- Method with an Checked Exception      CAN     be overridden with the    SAME    Checked Exception     (ClassNotFoundException)
-- Method with an Checked Exception      CAN     be overridden with a      NARROW  Checked Exception     (ClassNotFoundException)
-- Method with an Checked Exception      CAN'T   be overridden with a      BROADER Checked Exception     (ClassNotFoundException)
-- Method with an CHECK Exception        CAN'T   be overridden with the    NEW     CHECKED Exception     (ClassNotFoundException) !!!
-- Method with an CHECKED Exception      CAN'T   be overridden with the    NEW     UNCHECKED Exception   (IndexOutOfBoundException) !!!
+    Parent  { method(){} }
+    Child   { method() throws Exception{} } // Cannot Compile
+    Child   { method() throws RuntimeException {} } // Legal
 
-- Method with an UnChecked Exception    CAN     be overridden             WITHOUT Unchecked Exception   (IndexOutOfBoundException)
-- Method with an UnChecked Exception    CAN     be overridden with the    SAME    Unchecked Exception   (IndexOutOfBoundException)
-- Method with an UnChecked Exception    CAN     be overridden with a      NARROW  Unchecked Exception   (IndexOutOfBoundException)
-- Method with an UnChecked Exception    CAN'T   be overridden with a      BROADER Unchecked Exception   (IndexOutOfBoundException)
-- Method with an UNCHECKED Exception    CAN'T   be overridden with the    NEW     UNCHECKED Exception   (IndexOutOfBoundException) !!!
-- Method with an UNCHECK Exception      CAN'T   be overridden with the    NEW     CHECKED Exception     (ClassNotFoundException) !!!
+-   If the superclass method declares an exception, subclass overridden method can declare SAME, 
+    subclass (NARROWER) exception or NO exception but cannot declare parent (BROADER) exception.
 
+    Parent  { method() {} throws Exception {} }
+    Child   { method() {} throws Exception {} }     // Legal
+    Child   { method() {} trhows Throwable {} }     // Cannot Compile
+    Child   { method() {} throws ExceptionIO {} }   // Legal
+
+
+    Parent  { method() {} trhows RuntimeException {} }
+    Child   { method() {} throws Exception {} }         // Cannot Compile
+
+    Parent  { method() {} trhows Exception {} }
+    Child   { method() {} throws RuntimeException {} }  // Legal
 
 
 // OverLoad ---------------------------------------------------------------------------------------------------------------------------
@@ -300,7 +318,7 @@ ________________________________________________________________________________
 3. Addition, subtraction                   +      -                        add         subtract
 4. Relation operators                      <      >      <=    >=          greater     lesser      lesser-equal     greater-equal
 5. Equality operators                      ==     !=                       equal       not-equal
-6. Logical operators (non-circuit)         &      |    ^                   AND         OR
+6. Logical operators (non-circuit)         &      |    ^                   AND         OR   XOR
 7. Short-circuit                           &&     ||                       AND         OR
 8. Assignment operators                    =      +=     -=                equal       plusEqual   minusEqual
 

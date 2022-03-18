@@ -20,23 +20,35 @@
 -   Reuse name
 -   MUST have same argument
 -   MUST have same return type (or sub-type)
-
 -   overridden method (i.e. declared in subclass) must not be more restrictive.
 
--- Super Method can have:
--   Any Exceptions
--   Unchecked Exception
--   Checked Exception
+
+-- Rules
+
+-   If the superclass method does NOT declare an exception, 
+    subclass overridden method CANNOT declare the CHECKED exception but it CAN declare UNCHECKED exception.
+
+    Parent  { method(){} }
+    Child   { method() throws RuntimeException {} } // Legal
+    Child   { method() throws Exception{} } // Cannot Compile
+
+-   If the superclass method declares an exception, subclass overridden method can declare SAME, 
+    subclass (NARROWER) exception or NO exception but cannot declare parent (BROADER) exception.
+
+    Parent  { method() {} throws Exception {} }
+    Child   { method() {} throws Exception {} }     // Legal
+    Child   { method() {} trhows Throwable {} }     // Cannot Compile
+    Child   { method() {} throws ExceptionIO {} }   // Legal
 
 
---  Override Method can only do:
-    - New       Unchecked Exception
-    - Same      Unchecked Exception
-    - Narrower Unchecked Exception
-    - Can't throw Checked Exception
+    Parent  { method() {} trhows RuntimeException {} }
+    Child   { method() {} throws Exception {} }         // Cannot Compile
+
+    Parent  { method() {} trhows Exception {} }
+    Child   { method() {} throws RuntimeException {} }  // Legal
 
 
-*/
+    */
 
 class MyException extends Exception {}
 

@@ -3,6 +3,7 @@
 -   primitives:     byte, short, int, long
 -   Wrapper classes Character, Byte, Short, Integer, Long, 
 -   String
+-   Enum
 
 -- NOT-permitted
 -   floating-point:  float, double

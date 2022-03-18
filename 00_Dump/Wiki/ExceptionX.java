@@ -1,21 +1,23 @@
 /*
 
 
-                        Object
-                        |
-                        |
-    ------------------ Throwable --------------------
-    |                                               |
-    |                                               |
-    --  Exceptions (Checked)                        -- Error
-    |
-    |
-    --  Checked Exceptions 
-        (IO or Compile-Time)
-    |
-    |
-    --  Unchecked Exceptions 
-        (Runtime or NullPointer)
+                                                    Object
+                                                    |
+                                                    |
+                                ------------------ Throwable --------------------
+                                |                                               |
+                                |                                               |
+                            Exception (CHECKED)                                - (Error)
+                                |                                              - StackOverflowError
+                                |                                              - OutOfMemoryError
+(UNCHECKED) ------------------------------------------------- (CHECKED) 
+- NullPointerException                                      - IOException -------------- FileNotFoundException
+- IndexOutOfBoundException                                  - ClassNotFoundException
+- ArrayIndexOutOfBoundsException                            - SocketException
+- IllegalArgumentException                                  - SQLException
+- NumberFormatException                                     - 
+- ClassCastException                                        - 
+                   
 
 
 
@@ -30,6 +32,7 @@
 
     -   Object.Throwable.Exception.Checked Exception...
     -   IO              Exception
+    FileNotFoundException
     -   ClassnotFound   Exception
     -   Socket          Exception
     -   SQL             Exception
@@ -82,7 +85,124 @@
     like ArrayIndexOutOfBoundsException
 -   If a throws
 */
+import java.io.*;
 
-public class ExceptionX {
+class CheckExs {
+
+    /*-----------------------------------------------
+            -- Checked Exception (CompileTime)
+    ..................................................
+        -   Required to be handled OR declared
+        -   try block must include either an catch, finally or both
+        -   Overridden method can have any new or broader checked exceptions
+        -   Nested try/catch block can't use the same variable name, already defined in the outside try/catch
+        -   Second catch block can use the same variable name, they are different blocks
+    -----------------------------------------------*/
+
+    void ExceptionEx() {
+        // TYPE:        Checked Exception (CompileTime)
+        try {
+            throw new Exception();
+        } catch ( Exception e) {}
+    }
+
+    void ClassNotFoundException() {
+        // TYPE:        Checked Exception (CompileTime)
+        // ARISE:       Class is not found in the path of the class
+        // EXAMPLE:     Missing Folder
+        try {
+            throw new ClassNotFoundException();
+        } catch ( ClassNotFoundException e1) {
+        } catch ( Exception e) {
+
+            try {
+            throw new Exception();
+            } catch (Exception ex) {} // error: variable e is already defined in this method
+
+        } catch (Throwable e) {} // variable e legal outside the previous method
+    }
+
+    void FileNotFoundEx() throws FileNotFoundException {
+        System.out.println("Declaring instead of not Catching an Exception, wound break the code");
+    }
+
+}
+
+
+
+
+
+public class ExceptionX extends CheckExs {
+
+    /*-----------------------------------------------
+            -- Unchecked Exception (Runtime)
+    ..................................................
+        -   Not required to be handled or declared
+    -----------------------------------------------*/
+
+    void RuntimeEx() {
+        // TYPE:    Unchecked Exception (Runtime)
+        throw new RuntimeException();
+    }
+
+    void NullPointEx() {
+        // TYPE:    Unchecked Exception (Runtime)
+        // ARISE:       Attempting to invoke an instance method of a null object.
+        // ARISE:       Attempting to access or modify a particular field of a null object.
+        // ARISE:       Attempting to obtain the length of a null object as an array.
+        // EXAMPLE:     String s = new String[5];
+        throw new NullPointerException();
+    }
+
+    void ArrayIndexOutOfBoundsEx() {
+        // TYPE:    Unchecked Exception (Runtime)
+        // ARISE:   access the elements of an Array beyond its size.
+        // EXAMPLE: int[] arr = {1,2};      int x = arr[2];
+        throw new ArrayIndexOutOfBoundsException();
+    }
+
+
+    void NumberFormatEX() {
+        // TYPE:    Unchecked Exception (Runtime)
+        // ARISE:   Format (convert) a string into a number
+        // EXAMPLE: int x = Integer.parseInt("30k");
+        throw new NumberFormatException();
+    }
+
+
+    void IllegalArgumentEx() {
+        // TYPE:    Unchecked Exception (Runtime)
+        // ARISE:   Indicate that a method has been passed an illegal argument.
+        // EXAMPLE: Method requires date format like YYYY/MM/DD but if the user is passing YYYY-MM-DD
+        throw new IllegalArgumentException();
+    }
+
+
+    void ClassCastEx() {
+        // TYPE:    unchecked exception (Runtime)
+        // ARISE:   Convert an object of one class type into an object of another class type
+        // EXAMPLE: Will be thrown DownCast  an object of Parent class to its Child class type
+        throw new ClassCastException();
+    }
+
+
+    void IllegalStateEx() {
+        // TYPE:    Unchecked Exception (Runtime)
+        // ARISE:   If we are dealing with the collection framework (List, Queue, Tree, Map)
+        // EXAMPLE: -
+        throw new IllegalStateException();
+    }
+
+
+
+
+
+
+    public static void main(String[] args) throws Exception {
+
+        ExceptionX ex = new ExceptionX();
+        ex.ClassNotFoundException();
+        
+    }
     
 }

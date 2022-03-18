@@ -47,6 +47,11 @@ public class EqualsOp {
         System.out.println("compare enum:           " + ( Days.M==Days.W) ); // false
         System.out.println("compare non objects:    " + (new int[0] == new int[0]) ); // false (no objects)
 
+
+        String john = "John";
+        String jon = new String(john); // new object
+        System.out.println(john==jon); // false
+
     }
     
 }

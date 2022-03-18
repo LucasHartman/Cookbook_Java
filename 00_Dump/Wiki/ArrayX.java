@@ -67,7 +67,11 @@ public class ArrayX {
   
 
         // Sort & Search
-        
+        int[] intArray = {22, 55, 33, 11};
+        Arrays.sort(intArray); // 11, 22, 33, 55
+        int result = Arrays.binarySearch(intArray, 55); // return index pos
+        System.out.println(result); // index 3 
+
         
     }
 }

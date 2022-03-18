@@ -42,6 +42,13 @@ public static void main(String[] args) {
     // replace
     sb.replace(3,6,"aaa");
     System.out.println(sb); // Helaaalo
+
+
+    StringBuilder sb1 = new StringBuilder("abc");
+    StringBuilder sb2 = sb1;
+    sb1.append("d");
+    System.out.println(sb1 +" " +sb2 +" " +(sb1==sb2)); // abcd abcd true (different variable but same reference address)
+
     
     }
     
